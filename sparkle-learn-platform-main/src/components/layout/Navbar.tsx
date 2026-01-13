@@ -30,22 +30,20 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-card/95 backdrop-blur-lg shadow-soft border-b border-border/50'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-soft group-hover:shadow-elevated transition-all duration-300">
-              <GraduationCap className="w-6 h-6 text-primary-foreground" />
+            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-soft group-hover:shadow-elevated transition-all duration-300 overflow-hidden">
+              <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain p-1" />
             </div>
-            <span className={`text-xl font-display font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}>
+            <span className={`text-xl font-display font-bold transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
+              }`}>
               Sparkle
             </span>
           </Link>
@@ -56,13 +54,12 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                  location.pathname === link.path
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path
                     ? 'text-primary'
                     : isScrolled
-                    ? 'text-foreground/70'
-                    : 'text-primary-foreground/80'
-                }`}
+                      ? 'text-foreground/70'
+                      : 'text-primary-foreground/80'
+                  }`}
               >
                 {link.name}
               </Link>
@@ -73,9 +70,8 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <Link
               to="/admin"
-              className={`p-2 rounded-lg transition-colors hover:bg-primary/10 ${
-                isScrolled ? 'text-foreground/70' : 'text-primary-foreground/80'
-              }`}
+              className={`p-2 rounded-lg transition-colors hover:bg-primary/10 ${isScrolled ? 'text-foreground/70' : 'text-primary-foreground/80'
+                }`}
               title="Admin Panel"
             >
               <Settings className="w-5 h-5" />
@@ -99,9 +95,8 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}
+            className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
+              }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -116,11 +111,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-base font-medium py-2 transition-colors ${
-                  location.pathname === link.path
+                className={`text-base font-medium py-2 transition-colors ${location.pathname === link.path
                     ? 'text-primary'
                     : 'text-foreground/70 hover:text-primary'
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>
