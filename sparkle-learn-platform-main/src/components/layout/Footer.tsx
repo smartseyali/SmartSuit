@@ -41,8 +41,8 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
+                <img src="/logo.jpg" alt="Sparkle Logo" className="w-full h-full object-contain p-1" />
               </div>
               <span className="text-xl font-display font-bold">Sparkle</span>
             </Link>
@@ -54,13 +54,19 @@ const Footer = () => {
                 <Mail className="w-5 h-5" />
                 <span>hello@sparkle.edu</span>
               </a>
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors">
-                <Phone className="w-5 h-5" />
-                <span>+91 98765 43210</span>
-              </a>
+              <div className="flex flex-col gap-2">
+                <a href="tel:+9182228732" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors">
+                  <Phone className="w-5 h-5" />
+                  <span>+91 822 28732</span>
+                </a>
+                <a href="tel:+919363882960" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors">
+                  <Phone className="w-5 h-5" />
+                  <span>+91 93638 82960</span>
+                </a>
+              </div>
               <div className="flex items-start gap-3 text-primary-foreground/70">
-                <MapPin className="w-5 h-5 mt-0.5" />
-                <span>123 Education Hub, Tech Park,<br />Bangalore, Karnataka 560001</span>
+                <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
+                <span>Kathir College Campus, Avinashi Road,<br />Neelambur, Coimbatore - 641062</span>
               </div>
             </div>
           </div>
