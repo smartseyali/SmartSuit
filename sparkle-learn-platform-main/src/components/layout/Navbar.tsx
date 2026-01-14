@@ -68,14 +68,14 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
+            {/* <Link
               to="/admin"
               className={`p-2 rounded-lg transition-colors hover:bg-primary/10 ${isScrolled ? 'text-foreground/70' : 'text-primary-foreground/80'
                 }`}
               title="Admin Panel"
             >
               <Settings className="w-5 h-5" />
-            </Link>
+            </Link> */}
             <Button
               variant={isScrolled ? 'outline' : 'heroOutline'}
               size="sm"
