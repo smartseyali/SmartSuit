@@ -1,29 +1,34 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchPrograms, fetchProgramDetail, fetchCategories, ApiProductDetail } from '@/lib/api';
-import { healthcarePrograms, Program as UIProgram } from '@/data/programsData';
 
-export type Program = UIProgram;
+export interface Program {
+  id: string;
+  name: string;
+  category: string;
+  duration: string;
+  mode: 'Online' | 'Offline' | 'Hybrid';
+  fees: string;
+  description: string;
+  highlights: string[];
+  curriculum: {
+    title: string;
+    topics: string[];
+  }[];
+  eligibility: string[];
+  careerOutcomes: string[];
+  image: string;
+  featured: boolean;
+}
 
 export const useCategories = () => {
-  return useQuery({
-    queryKey: ['categories'],
-    queryFn: async () => {
-      try {
-        const apiCategories = await fetchCategories();
-        const localCategories = Array.from(new Set(healthcarePrograms.map(p => p.category)));
-        // Merge and remove duplicates
-        return Array.from(new Set([...localCategories, ...apiCategories]));
-      } catch (error) {
-        console.error('Error fetching categories from API:', error);
-        return Array.from(new Set(healthcarePrograms.map(p => p.category)));
-      }
-    }
-  });
+    return useQuery({
+        queryKey: ['categories'],
+        queryFn: fetchCategories
+    });
 };
 
 // Helper to safely parse JSON attributes
 const parseJsonAttribute = <T>(attributes: { name: string; value: string }[], key: string, defaultValue: T): T => {
-  if (!attributes) return defaultValue;
   const attr = attributes.find(a => a.name === key);
   if (!attr) return defaultValue;
   try {
@@ -37,15 +42,13 @@ const parseJsonAttribute = <T>(attributes: { name: string; value: string }[], ke
 // Adapter function to convert API response to UI Program model
 const adaptProductToProgram = (apiProduct: ApiProductDetail): Program => {
   // Extract simple attributes
-  const duration = apiProduct.duration ||
-    apiProduct.serviceDetails?.duration ||
-    apiProduct.attributes?.find(a => a.name === 'Duration')?.value ||
-    'TBD';
-  const mode = (apiProduct.serviceType ||
-    apiProduct.serviceDetails?.type ||
-    apiProduct.attributes?.find(a => a.name === 'Mode')?.value ||
-    'Online') as 'Online' | 'Offline' | 'Hybrid';
-
+  const duration = apiProduct.serviceDetails?.duration || 
+                   apiProduct.attributes.find(a => a.name === 'Duration')?.value || 
+                   'TBD';
+  const mode = (apiProduct.serviceDetails?.type || 
+               apiProduct.attributes.find(a => a.name === 'Mode')?.value || 
+               'Online') as 'Online' | 'Offline' | 'Hybrid';
+  
   // Parse complex JSON attributes
   const curriculum = parseJsonAttribute(apiProduct.attributes, 'JSON_Curriculum', []);
   const eligibility = parseJsonAttribute(apiProduct.attributes, 'JSON_Eligibility', []);
@@ -56,16 +59,16 @@ const adaptProductToProgram = (apiProduct: ApiProductDetail): Program => {
     style: 'currency',
     currency: 'INR',
     maximumFractionDigits: 0
-  }).format(apiProduct.price || 0);
+  }).format(apiProduct.price);
 
   return {
     id: apiProduct.slug || apiProduct.id,
     name: apiProduct.name,
-    category: apiProduct.categoryName || 'General',
+    category: apiProduct.categoryName,
     duration: duration,
     mode: mode,
     fees: formattedFees,
-    description: apiProduct.shortDescription || apiProduct.metaDescription || apiProduct.name, // Use short desc for cards
+    description: apiProduct.shortDescription || apiProduct.metaDescription, // Use short desc for cards
     highlights: apiProduct.features && apiProduct.features.length > 0 ? apiProduct.features : ['Industry recognized'],
     curriculum: curriculum,
     eligibility: eligibility,
@@ -79,39 +82,35 @@ export const usePrograms = () => {
   return useQuery({
     queryKey: ['programs'],
     queryFn: async () => {
-      try {
-        const apiProducts = await fetchPrograms();
-        const adaptedApiPrograms = apiProducts.map(p => ({
-          id: p.slug || p.id,
-          name: p.name,
-          category: p.categoryName || 'General',
-          duration: p.duration || 'TBD',
-          mode: (p.serviceType as any) || 'Online',
-          fees: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(p.price || 0),
-          description: p.shortDescription || p.name,
-          highlights: [],
-          curriculum: [],
-          eligibility: [],
-          careerOutcomes: [],
-          image: p.thumbnailUrl || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
-          featured: false
-        }));
-
-        // Merge local healthcare data with API data
-        // We use a Map to ensure unique IDs (prioritize local)
-        const allProgramsMap = new Map();
-
-        // Add API programs first
-        adaptedApiPrograms.forEach(p => allProgramsMap.set(p.id, p));
-
-        // Add/Overwrite with local healthcare programs (so they take precedence)
-        healthcarePrograms.forEach(p => allProgramsMap.set(p.id, p));
-
-        return Array.from(allProgramsMap.values());
-      } catch (error) {
-        console.error('Error fetching programs from API:', error);
-        return healthcarePrograms;
-      }
+      const apiProducts = await fetchPrograms();
+      // For the list view, we might not have all details (attributes etc) if the list endpoint is lightweight.
+      // However, the current requirement is to render the *list* first.
+      // If the list endpoint doesn't return attributes/features, we might need adjustments.
+      // Looking at ClientProductListDto, it DOES NOT have attributes/features.
+      // It has: Name, Code, Category, Brand, Slug, Price, Thumbnail.
+      // The UI 'Programs.tsx' needs: ID, Name, Category, Description, Image, Mode, Duration.
+      
+      // ISSUE: ClientProductListDto misses Description, Mode, Duration.
+      // WORKAROUND: We will fetch the list, mapped minimally. 
+      // Ideally we should update the List DTO. For now we use placeholders or fetch details for each (N+1) - bad performance but accurate.
+      // BETTER: For the list page, let's just use what we have and maybe simple defaults, or just assume the List DTO will be updated later.
+      
+      
+      return apiProducts.map(p => ({
+        id: p.slug || p.id,
+        name: p.name,
+        category: p.categoryName || 'General',
+        duration: p.duration || 'TBD',
+        mode: (p.serviceType as any) || 'Online', 
+        fees: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(p.price),
+        description: p.shortDescription || p.name,
+        highlights: [],
+        curriculum: [],
+        eligibility: [],
+        careerOutcomes: [],
+        image: p.thumbnailUrl || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
+        featured: false // The API currently doesn't return featured status for list, assume false or update API.
+      }));
     }
   });
 };
@@ -120,11 +119,6 @@ export const useProgram = (id: string) => {
   return useQuery({
     queryKey: ['program', id],
     queryFn: async () => {
-      // First check local data
-      const localProgram = healthcarePrograms.find(p => p.id === id);
-      if (localProgram) return localProgram;
-
-      // Fallback to API
       const apiDetail = await fetchProgramDetail(id);
       return adaptProductToProgram(apiDetail);
     },

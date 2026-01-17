@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
 import { usePrograms, useCategories } from '@/hooks/usePrograms';
-import { Microscope, Activity, ShieldPlus, Landmark, FileHeart } from 'lucide-react';
+import { Database, TrendingUp, Code, Palette, Megaphone, ArrowRight } from 'lucide-react';
 
-const categoryIcons: Record<string, any> = {
-  'Laboratory Sciences': Microscope,
-  'Nursing & Care': Activity,
-  'Public Health': ShieldPlus,
-  'Management': Landmark,
-  'Health Informatics': FileHeart,
+const categoryIcons: Record<string, typeof Database> = {
+  'Data Science & AI': Database,
+  'Business & Management': TrendingUp,
+  'Technology': Code,
+  'Design': Palette,
+  'Marketing': Megaphone,
 };
 
 const categoryColors: Record<string, string> = {
-  'Laboratory Sciences': 'bg-blue-500/10 text-blue-600 group-hover:bg-blue-500',
-  'Nursing & Care': 'bg-emerald-500/10 text-emerald-600 group-hover:bg-emerald-500',
-  'Public Health': 'bg-orange-500/10 text-orange-600 group-hover:bg-orange-500',
-  'Management': 'bg-purple-500/10 text-purple-600 group-hover:bg-purple-500',
-  'Health Informatics': 'bg-pink-500/10 text-pink-600 group-hover:bg-pink-500',
+  'Data Science & AI': 'bg-blue-500/10 text-blue-600 group-hover:bg-blue-500',
+  'Business & Management': 'bg-emerald-500/10 text-emerald-600 group-hover:bg-emerald-500',
+  'Technology': 'bg-purple-500/10 text-purple-600 group-hover:bg-purple-500',
+  'Design': 'bg-pink-500/10 text-pink-600 group-hover:bg-pink-500',
+  'Marketing': 'bg-orange-500/10 text-orange-600 group-hover:bg-orange-500',
 };
 
 const Categories = () => {
@@ -23,7 +23,7 @@ const Categories = () => {
   const { data: programs = [], isLoading: progsLoading } = usePrograms();
 
   if (catsLoading || progsLoading) {
-    return <div className="py-20 text-center">Loading categories...</div>;
+      return <div className="py-20 text-center">Loading categories...</div>;
   }
 
   return (
@@ -45,7 +45,7 @@ const Categories = () => {
         {/* Categories Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {categories.map((category, index) => {
-            const Icon = categoryIcons[category] || Microscope;
+            const Icon = categoryIcons[category] || Database;
             const colorClass = categoryColors[category] || 'bg-primary/10 text-primary group-hover:bg-primary';
             const programCount = programs.filter((p) => p.category === category).length;
 

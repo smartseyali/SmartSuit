@@ -4,7 +4,7 @@ const features = [
   {
     icon: GraduationCap,
     title: 'Expert Faculty',
-    description: 'Learn from experienced doctors and senior clinicians with 15+ years of clinical experience.',
+    description: 'Learn from IIT/IIM alumni and industry practitioners with 10+ years of experience.',
   },
   {
     icon: Target,
