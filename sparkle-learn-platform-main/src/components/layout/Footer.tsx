@@ -6,11 +6,11 @@ const Footer = () => {
 
   const footerLinks = {
     programs: [
-      { name: 'Data Science', path: '/programs' },
-      { name: 'Digital Marketing', path: '/programs' },
-      { name: 'Full Stack Development', path: '/programs' },
-      { name: 'Product Management', path: '/programs' },
-      { name: 'UI/UX Design', path: '/programs' },
+      { name: 'Medical Lab Technology', path: '/programs' },
+      { name: 'Patient Care Management', path: '/programs' },
+      { name: 'Health Care Inspectors', path: '/programs' },
+      { name: 'Hospital Administration', path: '/programs' },
+      { name: 'Blood Bank Technician', path: '/programs' },
     ],
     company: [
       { name: 'About Us', path: '/about' },
