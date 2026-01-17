@@ -31,8 +31,8 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-card/95 backdrop-blur-lg shadow-soft border-b border-border/50'
-          : 'bg-transparent'
+        ? 'bg-card/95 backdrop-blur-lg shadow-soft border-b border-border/50'
+        : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto px-4">
@@ -42,10 +42,16 @@ const Navbar = () => {
             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-soft group-hover:shadow-elevated transition-all duration-300 overflow-hidden">
               <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain p-1" />
             </div>
-            <span className={`text-xl font-display font-bold transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
-              }`}>
-              Sparkle
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className={`text-xl font-display font-bold transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
+                }`}>
+                Sparkle
+              </span>
+              <span className={`text-xs font-display font-medium transition-colors duration-300 ${isScrolled ? 'text-foreground/80' : 'text-primary-foreground/70'
+                }`}>
+                Allied Health Science
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,10 +61,10 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path
-                    ? 'text-primary'
-                    : isScrolled
-                      ? 'text-foreground/70'
-                      : 'text-primary-foreground/80'
+                  ? 'text-primary'
+                  : isScrolled
+                    ? 'text-foreground/70'
+                    : 'text-primary-foreground/80'
                   }`}
               >
                 {link.name}
@@ -112,8 +118,8 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-base font-medium py-2 transition-colors ${location.pathname === link.path
-                    ? 'text-primary'
-                    : 'text-foreground/70 hover:text-primary'
+                  ? 'text-primary'
+                  : 'text-foreground/70 hover:text-primary'
                   }`}
               >
                 {link.name}

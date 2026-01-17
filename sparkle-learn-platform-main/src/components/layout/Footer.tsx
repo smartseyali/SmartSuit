@@ -43,7 +43,12 @@ const Footer = () => {
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
                 <img src="/logo.jpg" alt="Sparkle Logo" className="w-full h-full object-contain p-1" />
               </div>
-              <span className="text-xl font-display font-bold">Sparkle</span>
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-display font-bold">Sparkle</span>
+                <span className="text-xs font-display font-medium text-primary-foreground/70">
+                  Allied Health Science
+                </span>
+              </div>
             </Link>
             <p className="text-primary-foreground/70 mb-6 max-w-sm">
               Empowering careers through world-class education. Join 50,000+ learners who transformed their lives with Sparkle.
