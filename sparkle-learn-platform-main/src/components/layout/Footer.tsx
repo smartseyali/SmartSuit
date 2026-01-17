@@ -18,10 +18,10 @@ const Footer = () => {
       { name: 'Contact', path: '/apply' },
     ],
     support: [
-      { name: 'FAQs', path: '#' },
+      { name: 'FAQs', path: '/faqs' },
       { name: 'Terms & Conditions', path: '/terms' },
-      { name: 'Privacy Policy', path: '#' },
-      { name: 'Refund Policy', path: '#' },
+      // { name: 'Privacy Policy', path: '#' },
+      // { name: 'Refund Policy', path: '#' },
     ],
   };
 
