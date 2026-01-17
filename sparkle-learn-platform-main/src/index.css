@@ -170,6 +170,14 @@
   .animate-slide-in-right {
     animation: slideInRight 0.5s ease-out forwards;
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 @keyframes float {
