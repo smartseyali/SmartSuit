@@ -6,23 +6,22 @@ const Footer = () => {
 
   const footerLinks = {
     programs: [
-      { name: 'Data Science', path: '/programs' },
-      { name: 'Digital Marketing', path: '/programs' },
-      { name: 'Full Stack Development', path: '/programs' },
-      { name: 'Product Management', path: '/programs' },
-      { name: 'UI/UX Design', path: '/programs' },
+      { name: 'Medical Lab Technology', path: '/programs' },
+      { name: 'Patient Care Management', path: '/programs' },
+      { name: 'Hospital Administration', path: '/programs' },
+      { name: 'Phlebotomy Course', path: '/programs' },
+      { name: 'HR Management', path: '/programs' },
     ],
     company: [
       { name: 'About Us', path: '/about' },
-      { name: 'Careers', path: '/careers' },
-      // { name: 'Blog', path: '/blog' },
-      { name: 'Contact', path: '/contact' },
+      { name: 'Careers', path: '#' },
+      { name: 'Contact', path: '/apply' },
     ],
     support: [
-      { name: 'FAQs', path: '/faqs' },
+      { name: 'FAQs', path: '#' },
       { name: 'Terms & Conditions', path: '/terms' },
-      { name: 'Privacy Policy', path: '/privacy' },
-      { name: 'Refund Policy', path: '/refund' },
+      { name: 'Privacy Policy', path: '#' },
+      { name: 'Refund Policy', path: '#' },
     ],
   };
 
