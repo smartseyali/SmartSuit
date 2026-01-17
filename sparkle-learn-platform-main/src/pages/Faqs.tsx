@@ -156,9 +156,14 @@ const Faqs = () => {
                             <Button size="xl" asChild>
                                 <Link to="/apply">Book a Free Consultation</Link>
                             </Button>
-                            <Button size="xl" variant="outline" asChild>
-                                <a href="tel:+918220928732">Call Us Directly</a>
-                            </Button>
+                            <div className="flex flex-col gap-2">
+                                <Button size="xl" variant="outline" asChild>
+                                    <a href="tel:+918220928732">Call +91 82209 28732</a>
+                                </Button>
+                                <Button size="xl" variant="outline" asChild>
+                                    <a href="tel:+919363882960">Call +91 93638 82960</a>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
