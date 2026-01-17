@@ -4,8 +4,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { 
-  ArrowRight, Phone, Mail, MapPin, CheckCircle2, 
+import {
+  ArrowRight, Phone, Mail, MapPin, CheckCircle2,
   User, AtSign, MessageSquare, GraduationCap
 } from 'lucide-react';
 import { fetchPrograms, createEnquiry } from '@/lib/api';
@@ -19,7 +19,7 @@ interface Course {
 const Apply = () => {
   const [searchParams] = useSearchParams();
   const programSlug = searchParams.get('program');
-  
+
   // Use generic Course interface but map from ApiProductList
   const [courses, setCourses] = useState<Course[]>([]);
   const [formData, setFormData] = useState({
@@ -37,17 +37,17 @@ const Apply = () => {
       try {
         const products = await fetchPrograms();
         const mappedCourses = products.map(p => ({
-            id: p.id,
-            title: p.name,
-            slug: p.slug
+          id: p.id,
+          title: p.name,
+          slug: p.slug
         }));
         setCourses(mappedCourses);
 
         if (programSlug) {
-             const matchingCourse = mappedCourses.find(c => c.slug === programSlug);
-             if (matchingCourse) {
-               setFormData(prev => ({ ...prev, course_id: matchingCourse.id }));
-             }
+          const matchingCourse = mappedCourses.find(c => c.slug === programSlug);
+          if (matchingCourse) {
+            setFormData(prev => ({ ...prev, course_id: matchingCourse.id }));
+          }
         }
       } catch (err) {
         console.error("Failed to load courses", err);
@@ -62,7 +62,7 @@ const Apply = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.phone) {
       toast.error('Please fill in all required fields');
       return;
@@ -71,30 +71,30 @@ const Apply = () => {
     setIsSubmitting(true);
 
     const selectedCourse = courses.find(c => c.id === formData.course_id);
-    
+
     try {
-        await createEnquiry({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            courseId: formData.course_id || undefined,
-            courseName: selectedCourse?.title,
-            message: formData.message
-        });
-        setIsSubmitted(true);
-        toast.success('Enquiry submitted successfully!');
+      await createEnquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        courseId: formData.course_id || undefined,
+        courseName: selectedCourse?.title,
+        message: formData.message
+      });
+      setIsSubmitted(true);
+      toast.success('Enquiry submitted successfully!');
     } catch (error) {
-        console.error(error);
-        toast.error('Failed to submit enquiry. Please try again.');
+      console.error(error);
+      toast.error('Failed to submit enquiry. Please try again.');
     } finally {
-        setIsSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -295,8 +295,8 @@ const Apply = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Call Us</h3>
                       <p className="text-muted-foreground text-sm mb-2">Mon-Sat 9am to 8pm</p>
-                      <a href="tel:+919876543210" className="text-primary font-medium hover:underline">
-                        +91 98765 43210
+                      <a href="tel:+918220928732" className="text-primary font-medium hover:underline">
+                        +91 82209 28732
                       </a>
                     </div>
                   </div>
@@ -308,8 +308,8 @@ const Apply = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email Us</h3>
                       <p className="text-muted-foreground text-sm mb-2">We'll respond within 24 hours</p>
-                      <a href="mailto:admissions@sparkle.edu" className="text-primary font-medium hover:underline">
-                        admissions@sparkle.edu
+                      <a href="mailto:hello@sparkle.edu" className="text-primary font-medium hover:underline">
+                        hello@sparkle.edu
                       </a>
                     </div>
                   </div>
@@ -321,8 +321,8 @@ const Apply = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Visit Us</h3>
                       <p className="text-muted-foreground text-sm">
-                        123 Education Hub, Tech Park,<br />
-                        Bangalore, Karnataka 560001
+                        Kathir College Campus, Avinashi Road,<br />
+                        Neelambur, Coimbatore - 641062
                       </p>
                     </div>
                   </div>
