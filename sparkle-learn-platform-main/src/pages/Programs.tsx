@@ -16,6 +16,16 @@ import {
   SelectValue
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetFooter,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const modes = ['All', 'Online', 'Offline', 'Hybrid'];
 
@@ -103,11 +113,11 @@ const Programs = () => {
       </section>
 
       {/* Filters Section */}
-      <section className="py-12 bg-background sticky top-20 z-40 border-b border-border shadow-sm">
+      <section className="py-6 bg-background/80 backdrop-blur-md sticky top-20 z-40 border-b border-border shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col space-y-8">
-            {/* Top Search & Primary Filters */}
-            <div className="flex flex-col lg:flex-row gap-6 items-stretch lg:items-center">
+          <div className="flex flex-col gap-6">
+            {/* Search & Main Actions */}
+            <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center">
               {/* Modern Search Input */}
               <div className="relative flex-grow group">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
@@ -116,81 +126,156 @@ const Programs = () => {
                   placeholder="What do you want to learn today?"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 h-14 rounded-2xl bg-secondary/50 border-transparent focus:bg-background focus:border-primary/20 shadow-none focus:shadow-glow-primary transition-all text-lg"
+                  className="pl-12 h-12 rounded-xl bg-secondary/50 border-transparent focus:bg-background focus:border-primary/20 shadow-none focus:shadow-glow-primary transition-all text-base"
                 />
               </div>
 
-              {/* Mode Select */}
-              <div className="min-w-[200px]">
-                <Select value={selectedMode} onValueChange={setSelectedMode}>
-                  <SelectTrigger className="h-14 rounded-2xl border-transparent bg-secondary/50 focus:bg-background text-base font-medium">
-                    <div className="flex items-center gap-2">
-                      <ListFilter className="w-4 h-4 text-muted-foreground" />
-                      <span>Mode: <SelectValue placeholder="All Modes" /></span>
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl border-border/50">
-                    {modes.map(mode => (
-                      <SelectItem key={mode} value={mode} className="rounded-lg py-2.5">
-                        {mode}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+              <div className="flex gap-3 items-center">
+                {/* Desktop Selects */}
+                <div className="hidden lg:flex items-center gap-3">
+                  <Select value={selectedMode} onValueChange={setSelectedMode}>
+                    <SelectTrigger className="w-[180px] h-12 rounded-xl border-transparent bg-secondary/50 focus:bg-background text-sm font-medium">
+                      <div className="flex items-center gap-2">
+                        <ListFilter className="w-4 h-4 text-muted-foreground" />
+                        <span>Mode: <SelectValue placeholder="All" /></span>
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent className="rounded-xl border-border/50">
+                      {modes.map(mode => (
+                        <SelectItem key={mode} value={mode} className="rounded-lg py-2">
+                          {mode}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
 
-              {/* Mobile Filter Toggle */}
-              <Button
-                variant="outline"
-                className="lg:hidden h-14 rounded-2xl px-6 border-transparent bg-secondary/50"
-                onClick={() => setShowFilters(!showFilters)}
-              >
-                <SlidersHorizontal className="w-5 h-5 mr-2" />
-                Filters
-                {(selectedCategory !== 'All' || selectedMode !== 'All') && (
-                  <span className="ml-2 px-2 py-0.5 min-w-[1.25rem] h-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-bold">
-                    {(selectedCategory !== 'All' ? 1 : 0) + (selectedMode !== 'All' ? 1 : 0)}
-                  </span>
-                )}
-              </Button>
+                {/* Mobile & Tablet Filter Drawer */}
+                <Sheet open={showFilters} onOpenChange={setShowFilters}>
+                  <SheetTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="lg:hidden h-12 rounded-xl px-4 border-transparent bg-secondary/50 hover:bg-secondary transition-colors"
+                    >
+                      <SlidersHorizontal className="w-5 h-5 mr-2" />
+                      Filters
+                      {(selectedCategory !== 'All' || selectedMode !== 'All') && (
+                        <span className="ml-2 px-2 py-0.5 min-w-[1.25rem] h-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-bold">
+                          {(selectedCategory !== 'All' ? 1 : 0) + (selectedMode !== 'All' ? 1 : 0)}
+                        </span>
+                      )}
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="flex flex-col h-full w-[300px] sm:w-[400px]">
+                    <SheetHeader className="text-left pb-6 border-b">
+                      <SheetTitle className="text-2xl font-display font-bold">Filters</SheetTitle>
+                      <SheetDescription>Refine the program list to find exactly what you need.</SheetDescription>
+                    </SheetHeader>
+
+                    <div className="flex-grow overflow-y-auto py-6 space-y-8">
+                      {/* Search in Drawer (Optional, but useful on mobile) */}
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Search</h4>
+                        <div className="relative group">
+                          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                          <Input
+                            type="text"
+                            placeholder="Search programs..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="pl-10 h-10 rounded-lg bg-secondary/50 border-transparent"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Mode in Drawer */}
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Delivery Mode</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {modes.map(mode => (
+                            <button
+                              key={mode}
+                              onClick={() => setSelectedMode(mode)}
+                              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${selectedMode === mode
+                                ? 'bg-primary border-primary text-primary-foreground shadow-sm'
+                                : 'bg-secondary/50 border-transparent text-foreground hover:border-primary/30'
+                                }`}
+                            >
+                              {mode}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Categories in Drawer */}
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Categories</h4>
+                        <div className="flex flex-wrap gap-2">
+                          <button
+                            onClick={() => handleCategoryChange('All')}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${selectedCategory === 'All'
+                              ? 'bg-primary border-primary text-primary-foreground shadow-sm'
+                              : 'bg-secondary/50 border-transparent text-foreground hover:border-primary/30'
+                              }`}
+                          >
+                            All Categories
+                          </button>
+                          {categories.map((category) => (
+                            <button
+                              key={category}
+                              onClick={() => handleCategoryChange(category)}
+                              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all border ${selectedCategory === category
+                                ? 'bg-primary border-primary text-primary-foreground shadow-sm'
+                                : 'bg-secondary/50 border-transparent text-foreground hover:border-primary/30'
+                                }`}
+                            >
+                              {category}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <SheetFooter className="pt-6 border-t mt-auto">
+                      <div className="flex items-center justify-between w-full gap-4">
+                        <button
+                          onClick={() => {
+                            setSelectedCategory('All');
+                            setSelectedMode('All');
+                            setSearchQuery('');
+                          }}
+                          className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors px-4 py-2"
+                        >
+                          Clear All
+                        </button>
+                        <SheetClose asChild>
+                          <Button className="flex-grow rounded-xl h-11 font-bold">Apply Filters</Button>
+                        </SheetClose>
+                      </div>
+                    </SheetFooter>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
 
-            {/* Categories Selection */}
-            <div className="flex flex-col space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground/80 flex items-center gap-2">
-                  <LayoutGrid className="w-4 h-4" />
-                  Popular Categories
-                </h3>
-                {(selectedCategory !== 'All' || selectedMode !== 'All' || searchQuery !== '') && (
-                  <button
-                    onClick={() => {
-                      setSelectedCategory('All');
-                      setSelectedMode('All');
-                      setSearchQuery('');
-                    }}
-                    className="text-sm font-medium text-primary hover:text-primary/80 flex items-center gap-1 transition-colors"
-                  >
-                    <X className="w-3 h-3" /> Clear All
-                  </button>
-                )}
-              </div>
-
-              <div className="flex gap-2 pb-2 overflow-x-auto no-scrollbar scroll-smooth">
+            {/* Desktop Categories (Horizontal Scroll) */}
+            <div className="hidden lg:flex items-center gap-4">
+              <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground/60 whitespace-nowrap">Categories:</span>
+              <div className="flex gap-2 pb-1 overflow-x-auto no-scrollbar scroll-smooth">
                 <button
                   onClick={() => handleCategoryChange('All')}
-                  className={`shrink-0 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 border ${selectedCategory === 'All'
+                  className={`shrink-0 px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 border ${selectedCategory === 'All'
                     ? 'bg-primary border-primary text-primary-foreground shadow-glow-primary'
                     : 'bg-secondary/50 border-transparent text-foreground hover:border-primary/30'
                     }`}
                 >
-                  All Categories
+                  All
                 </button>
                 {categories.map((category) => (
                   <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
-                    className={`shrink-0 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 border ${selectedCategory === category
+                    className={`shrink-0 px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 border ${selectedCategory === category
                       ? 'bg-primary border-primary text-primary-foreground shadow-glow-primary'
                       : 'bg-secondary/50 border-transparent text-foreground hover:border-primary/30'
                       }`}
@@ -199,12 +284,24 @@ const Programs = () => {
                   </button>
                 ))}
               </div>
+
+              {(selectedCategory !== 'All' || selectedMode !== 'All' || searchQuery !== '') && (
+                <button
+                  onClick={() => {
+                    setSelectedCategory('All');
+                    setSelectedMode('All');
+                    setSearchQuery('');
+                  }}
+                  className="ml-auto text-sm font-bold text-primary hover:text-primary/80 flex items-center gap-1.5 transition-colors"
+                >
+                  <X className="w-4 h-4" /> Reset
+                </button>
+              )}
             </div>
 
-            {/* Active Filters Display */}
+            {/* Filter Tags for Tablet/Desktop */}
             {(selectedCategory !== 'All' || selectedMode !== 'All') && (
-              <div className="flex items-center gap-3 pt-2">
-                <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Active:</span>
+              <div className="flex items-center gap-3 pt-2 lg:hidden">
                 <div className="flex flex-wrap gap-2">
                   {selectedCategory !== 'All' && (
                     <div className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary border border-primary/20 flex items-center gap-1.5 text-xs font-semibold">
