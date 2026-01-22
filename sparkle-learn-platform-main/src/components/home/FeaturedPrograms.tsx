@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { usePrograms } from '@/hooks/usePrograms';
-import { Clock, MapPin, ArrowRight } from 'lucide-react';
+import { Clock, MapPin, ArrowRight, Award } from 'lucide-react';
 
 const FeaturedPrograms = () => {
   const { data: programs, isLoading } = usePrograms();
   const featuredPrograms = programs ? programs.slice(0, 4) : [];
 
   if (isLoading) {
-      return <div className="py-20 text-center">Loading featured programs...</div>;
+    return <div className="py-20 text-center">Loading featured programs...</div>;
   }
 
   return (
@@ -49,10 +49,17 @@ const FeaturedPrograms = () => {
                     {program.category}
                   </span>
                 </div>
+                {/* Certification Badge */}
+                <div className="absolute top-3 left-3 z-10">
+                  <span className="inline-flex items-center gap-1 bg-white/95 backdrop-blur-md text-primary text-[10px] font-bold px-2 py-1 rounded-full shadow-sm border border-primary/10">
+                    <Award className="w-3 h-3" />
+                    Bharathiyar Univ. Certified
+                  </span>
+                </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              < div className="p-6" >
                 <h3 className="font-display font-bold text-foreground text-lg mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                   {program.name}
                 </h3>
@@ -87,8 +94,8 @@ const FeaturedPrograms = () => {
             </Link>
           </Button>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

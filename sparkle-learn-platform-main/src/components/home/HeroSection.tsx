@@ -24,9 +24,15 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
           {/* Left Content */}
           <div className="text-primary-foreground space-y-8">
-            <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20 animate-fade-up">
-              <Star className="w-4 h-4 text-accent fill-accent" />
-              <span className="text-sm font-medium">Rated 4.9/5 by 50,000+ learners</span>
+            <div className="flex flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20 animate-fade-up">
+                <Star className="w-4 h-4 text-accent fill-accent" />
+                <span className="text-sm font-medium">Rated 4.9/5 by 50,000+ learners</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 animate-fade-up delay-75">
+                <Award className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium">Certified by Bharathiyar University</span>
+              </div>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight animate-fade-up delay-100">

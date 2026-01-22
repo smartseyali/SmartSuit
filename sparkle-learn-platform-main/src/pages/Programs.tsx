@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import {
   Clock, MapPin, ArrowRight, Search, Filter, X,
-  ChevronDown, LayoutGrid, ListFilter, SlidersHorizontal
+  ChevronDown, LayoutGrid, ListFilter, SlidersHorizontal, Award
 } from 'lucide-react';
 import { usePrograms, useCategories } from '@/hooks/usePrograms';
 import {
@@ -358,6 +358,13 @@ const Programs = () => {
                         </span>
                       )}
                     </div>
+                  </div>
+                  {/* Certification Badge */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md text-primary text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm border border-primary/10">
+                      <Award className="w-3 h-3" />
+                      Bharathiyar Univ. Certified
+                    </span>
                   </div>
 
                   {/* Content */}

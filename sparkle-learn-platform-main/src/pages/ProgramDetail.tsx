@@ -2,8 +2,8 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { 
-  Clock, MapPin, ArrowLeft, CheckCircle2, GraduationCap, 
+import {
+  Clock, MapPin, ArrowLeft, CheckCircle2, GraduationCap,
   Briefcase, ChevronDown, Play, Users, Award
 } from 'lucide-react';
 import {
@@ -24,10 +24,10 @@ const ProgramDetail = () => {
       <main className="min-h-screen bg-background">
         <Navbar />
         <div className="pt-32 pb-20 text-center">
-            <div className="spinner-border text-primary" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-            <p className="mt-4 text-muted-foreground">Loading program details...</p>
+          <div className="spinner-border text-primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <p className="mt-4 text-muted-foreground">Loading program details...</p>
         </div>
         <Footer />
       </main>
@@ -55,7 +55,7 @@ const ProgramDetail = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-28 pb-16 bg-hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -73,9 +73,15 @@ const ProgramDetail = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-primary-foreground animate-fade-up">
-              <span className="inline-block bg-primary-foreground/10 text-primary-foreground text-sm font-semibold px-4 py-1 rounded-full mb-4 border border-primary-foreground/20">
-                {program.category}
-              </span>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="inline-block bg-primary-foreground/10 text-primary-foreground text-sm font-semibold px-4 py-1 rounded-full border border-primary-foreground/20">
+                  {program.category}
+                </span>
+                <span className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-sm font-semibold px-4 py-1 rounded-full shadow-glow-accent">
+                  <Award className="w-4 h-4" />
+                  Certified by Bharathiyar Univ.
+                </span>
+              </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6">
                 {program.name}
               </h1>
@@ -156,80 +162,80 @@ const ProgramDetail = () => {
 
               {/* Curriculum */}
               {program.curriculum && program.curriculum.length > 0 && (
-              <div className="animate-fade-up delay-100">
-                <h2 className="text-2xl font-display font-bold text-foreground mb-6">
-                  Curriculum
-                </h2>
-                <Accordion type="single" collapsible className="space-y-4">
-                  {program.curriculum.map((module, index) => (
-                    <AccordionItem
-                      key={index}
-                      value={`module-${index}`}
-                      className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
-                    >
-                      <AccordionTrigger className="text-left hover:no-underline py-4">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold">
-                            {index + 1}
+                <div className="animate-fade-up delay-100">
+                  <h2 className="text-2xl font-display font-bold text-foreground mb-6">
+                    Curriculum
+                  </h2>
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {program.curriculum.map((module, index) => (
+                      <AccordionItem
+                        key={index}
+                        value={`module-${index}`}
+                        className="bg-card rounded-xl border border-border/50 px-6 overflow-hidden"
+                      >
+                        <AccordionTrigger className="text-left hover:no-underline py-4">
+                          <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold">
+                              {index + 1}
+                            </div>
+                            <span className="font-display font-semibold text-foreground">
+                              {module.title}
+                            </span>
                           </div>
-                          <span className="font-display font-semibold text-foreground">
-                            {module.title}
-                          </span>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-4">
-                        <ul className="ml-14 space-y-2">
-                          {module.topics.map((topic, topicIndex) => (
-                            <li key={topicIndex} className="flex items-center gap-2 text-muted-foreground">
-                              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                              {topic}
-                            </li>
-                          ))}
-                        </ul>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="pb-4">
+                          <ul className="ml-14 space-y-2">
+                            {module.topics.map((topic, topicIndex) => (
+                              <li key={topicIndex} className="flex items-center gap-2 text-muted-foreground">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                {topic}
+                              </li>
+                            ))}
+                          </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
               )}
 
               {/* Eligibility */}
               {program.eligibility && program.eligibility.length > 0 && (
-              <div className="animate-fade-up delay-200">
-                <h2 className="text-2xl font-display font-bold text-foreground mb-6">
-                  Eligibility
-                </h2>
-                <div className="bg-card rounded-xl border border-border/50 p-6">
-                  <ul className="space-y-3">
-                    {program.eligibility.map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                        <span className="text-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="animate-fade-up delay-200">
+                  <h2 className="text-2xl font-display font-bold text-foreground mb-6">
+                    Eligibility
+                  </h2>
+                  <div className="bg-card rounded-xl border border-border/50 p-6">
+                    <ul className="space-y-3">
+                      {program.eligibility.map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                          <span className="text-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
               )}
 
               {/* Career Outcomes */}
               {program.careerOutcomes && program.careerOutcomes.length > 0 && (
-              <div className="animate-fade-up delay-300">
-                <h2 className="text-2xl font-display font-bold text-foreground mb-6">
-                  Career Opportunities
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {program.careerOutcomes.map((outcome, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border/50"
-                    >
-                      <Briefcase className="w-5 h-5 text-primary shrink-0" />
-                      <span className="text-foreground font-medium">{outcome}</span>
-                    </div>
-                  ))}
+                <div className="animate-fade-up delay-300">
+                  <h2 className="text-2xl font-display font-bold text-foreground mb-6">
+                    Career Opportunities
+                  </h2>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {program.careerOutcomes.map((outcome, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-3 p-4 bg-card rounded-xl border border-border/50"
+                      >
+                        <Briefcase className="w-5 h-5 text-primary shrink-0" />
+                        <span className="text-foreground font-medium">{outcome}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
               )}
             </div>
 
