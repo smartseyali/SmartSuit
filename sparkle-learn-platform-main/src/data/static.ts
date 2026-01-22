@@ -26,8 +26,8 @@ export const testimonials = [
 ];
 
 export const stats = [
-  { value: '50,000+', label: 'Students Placed' },
-  { value: '300+', label: 'Hiring Partners' },
+  { value: '1000+', label: 'Students Placed' },
+  { value: '100+', label: 'Hiring Partners' },
   { value: '92%', label: 'Placement Rate' },
   { value: '45%', label: 'Average Salary Hike' },
 ];
