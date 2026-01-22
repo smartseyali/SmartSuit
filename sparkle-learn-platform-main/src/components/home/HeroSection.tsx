@@ -91,67 +91,68 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div> */}
+            */}
+          </div>
 
-            {/* Right Content - Hero Image/Cards */}
-            <div className="relative hidden lg:block">
-              <div className="relative w-full aspect-square">
-                {/* Main Card */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-card rounded-2xl shadow-elevated overflow-hidden animate-float">
-                  <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop"
-                    alt="Students learning"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <div className="text-sm text-muted-foreground mb-2">Featured Program</div>
-                    <h3 className="font-display font-bold text-foreground text-lg mb-2">Medical Lab Technology</h3>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span>12 Months</span>
-                      <span>•</span>
-                      <span>Online</span>
-                    </div>
+          {/* Right Content - Hero Image/Cards */}
+          <div className="relative hidden lg:block">
+            <div className="relative w-full aspect-square">
+              {/* Main Card */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-card rounded-2xl shadow-elevated overflow-hidden animate-float">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop"
+                  alt="Students learning"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="text-sm text-muted-foreground mb-2">Featured Program</div>
+                  <h3 className="font-display font-bold text-foreground text-lg mb-2">Medical Lab Technology</h3>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span>12 Months</span>
+                    <span>•</span>
+                    <span>Online</span>
                   </div>
                 </div>
+              </div>
 
-                {/* Floating Stats Card */}
-                <div className="absolute top-10 right-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-500">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-green-600" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-muted-foreground">Placement Rate</div>
-                      <div className="text-xl font-bold text-foreground">92%</div>
-                    </div>
+              {/* Floating Stats Card */}
+              <div className="absolute top-10 right-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-500">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground">Placement Rate</div>
+                    <div className="text-xl font-bold text-foreground">92%</div>
                   </div>
                 </div>
+              </div>
 
-                {/* Floating Avatar Group */}
-                <div className="absolute bottom-20 left-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-700">
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-3">
-                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-foreground">Active Learners</div>
-                      <div className="text-xs text-muted-foreground">Join 10K+ learning now</div>
-                    </div>
+              {/* Floating Avatar Group */}
+              <div className="absolute bottom-20 left-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-700">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-3">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-foreground">Active Learners</div>
+                    <div className="text-xs text-muted-foreground">Join 10K+ learning now</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Wave Bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
-          </svg>
-        </div>
+      {/* Wave Bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="hsl(var(--background))" />
+        </svg>
+      </div>
     </section>
   );
 };
