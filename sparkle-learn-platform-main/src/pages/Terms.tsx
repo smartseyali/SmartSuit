@@ -85,7 +85,7 @@ const Terms = () => {
                                     <br />
                                     <strong>Email:</strong> legal@sparkle.edu
                                     <br />
-                                    <strong>Address:</strong> 123 Education Hub, Tech Park, Bangalore, KA 560001
+                                    <strong>Address:</strong> Near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062
                                 </p>
                             </div>
                         </div>

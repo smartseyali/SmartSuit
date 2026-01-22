@@ -321,7 +321,7 @@ const Apply = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Visit Us</h3>
                       <p className="text-muted-foreground text-sm">
-                        Kathir College Campus, Avinashi Road,<br />
+                        Near Sri Chaitanya Techno School, Avinashi Road,<br />
                         Neelambur, Coimbatore - 641062
                       </p>
                     </div>

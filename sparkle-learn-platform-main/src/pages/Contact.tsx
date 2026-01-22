@@ -37,7 +37,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      details: ["Kathir College Campus, Avinashi Road,", "Neelambur, Coimbatore - 641062"],
+      details: ["Near Sri Chaitanya Techno School, Avinashi Road,", "Neelambur, Coimbatore - 641062"],
       sub: "Get directions on map"
     }
   ];
@@ -132,26 +132,43 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border bg-secondary/30 relative animate-fade-up delay-200">
-              {/* In a real scenario, use an iframe here */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-12 text-center">
-                <div className="w-20 h-20 bg-background/50 backdrop-blur-md rounded-full flex items-center justify-center mb-6 shadow-soft">
-                  <MapPin className="w-10 h-10 text-primary animate-bounce" />
-                </div>
-                <h3 className="text-2xl font-display font-bold mb-4">Our Campus Location</h3>
-                <p className="text-muted-foreground mb-8 max-w-sm">
-                  Kathir College Campus, Avinashi Road, Neelambur, Coimbatore - 641062
-                </p>
-                <Button variant="outline" size="lg" className="rounded-xl bg-background" asChild>
-                  <a href="https://maps.google.com/maps?q=Kathir+College+Campus+Avinashi+Road+Neelambur+Coimbatore" target="_blank" rel="noopener noreferrer">
-                    Open in Google Maps
-                  </a>
-                </Button>
-              </div>
+            {/* Google Map */}
+            <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border shadow-elevated relative animate-fade-up delay-200 group">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.777093247079!2d77.08632637505057!3d11.055307989110756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857a266935555%3A0xa194605151523456!2sSri%20Chaitanya%20Techno%20School!5e0!3m2!1sen!2sin!4v1705663673539!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(0%) contrast(1.1)' }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
 
-              {/* Pattern overlay */}
-              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+              {/* Overlay Overlay for style (optional, removed for better usability) */}
+
+              {/* Location Pin Card Floating */}
+              <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-background/90 backdrop-blur-md p-6 rounded-3xl shadow-lg border border-white/20 animate-fade-in delay-500">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-primary fill-primary/20 animate-pulse" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-1">We are here!</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062
+                    </p>
+                    <a
+                      href="https://maps.google.com/maps?q=Sri+Chaitanya+Techno+School+Coimbatore"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-primary mt-3 hover:underline"
+                    >
+                      Get Directions <Globe className="w-3 h-3" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

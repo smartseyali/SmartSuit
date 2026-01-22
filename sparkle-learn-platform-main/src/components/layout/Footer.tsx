@@ -70,7 +70,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3 text-primary-foreground/70">
                 <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
-                <span>Kathir College Campus, Avinashi Road,<br />Neelambur, Coimbatore - 641062</span>
+                <span>Near Sri Chaitanya Techno School, Avinashi Road,<br />Neelambur, Coimbatore - 641062</span>
               </div>
             </div>
           </div>
