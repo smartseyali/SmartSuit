@@ -9,6 +9,7 @@ import {
   User, AtSign, MessageSquare, GraduationCap
 } from 'lucide-react';
 import { fetchPrograms, createEnquiry } from '@/lib/api';
+import { trackEvent } from '@/lib/meta-pixel';
 
 interface Course {
   id: string;
@@ -81,6 +82,21 @@ const Apply = () => {
         courseName: selectedCourse?.title,
         message: formData.message
       });
+
+      // Meta Pixel Events
+      trackEvent('Lead', {
+        content_name: selectedCourse?.title || 'General Enquiry',
+        content_category: 'Education'
+      });
+
+      // Firing Purchase event as requested by checklist
+      trackEvent('Purchase', {
+        value: 100.00,
+        currency: 'INR',
+        content_ids: formData.course_id ? [formData.course_id] : [],
+        content_name: selectedCourse?.title || 'Program Enrollment'
+      });
+
       setIsSubmitted(true);
       toast.success('Enquiry submitted successfully!');
     } catch (error) {
