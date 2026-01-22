@@ -68,8 +68,10 @@ const Footer = () => {
                   <span>+91 93638 82960</span>
                 </a>
               </div>
-              <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
-              <span>Near Sri Chaitanya Techno School, Avinashi Road,<br />Neelambur, Coimbatore - 641062</span>
+              <div className="flex items-start gap-3 text-primary-foreground/70">
+                <MapPin className="w-5 h-5 mt-0.5 shrink-0" />
+                <span>Near Sri Chaitanya Techno School, Avinashi Road,<br />Neelambur, Coimbatore - 641062</span>
+              </div>
             </div>
             <div className="mt-4 w-full h-40 rounded-xl overflow-hidden border border-white/10 shadow-sm">
               <iframe
