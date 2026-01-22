@@ -20,7 +20,7 @@ const Index = () => {
       <Categories />
       <OfficeGallery />
       <WhySparkle />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CTASection />
       <Footer />
     </main>

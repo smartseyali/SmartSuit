@@ -1,3 +1,4 @@
+import Autoplay from "embla-carousel-autoplay"
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -38,6 +39,10 @@ const officeImages = [
 ];
 
 const OfficeGallery = () => {
+    const plugin = React.useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: true })
+    );
+
     return (
         <section className="py-20 bg-background overflow-hidden">
             <div className="container mx-auto px-4">
@@ -57,11 +62,14 @@ const OfficeGallery = () => {
                 {/* Carousel */}
                 <div className="relative max-w-5xl mx-auto">
                     <Carousel
+                        plugins={[plugin.current]}
                         opts={{
                             align: "start",
                             loop: true,
                         }}
                         className="w-full"
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
                     >
                         <CarouselContent>
                             {officeImages.map((image, index) => (
