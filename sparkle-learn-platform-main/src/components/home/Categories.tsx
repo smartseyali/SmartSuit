@@ -46,7 +46,7 @@ const Categories = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {categories.map((category, index) => {
             const Icon = categoryIcons[category] || Database;
-            const colorClass = categoryColors[category]; //|| 'bg-primary/10 text-primary group-hover:bg-primary';
+            const colorClass = categoryColors[category] | 'bg-primary/10 text-primary group-hover:bg-primary';
             const programCount = programs.filter((p) => p.category === category).length;
 
             return (
