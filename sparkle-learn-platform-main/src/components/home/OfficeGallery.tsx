@@ -60,33 +60,33 @@ const OfficeGallery = () => {
                 </div>
 
                 {/* Carousel */}
-                <div className="relative max-w-5xl mx-auto">
+                <div className="relative w-full">
                     <Carousel
                         plugins={[plugin.current]}
                         opts={{
-                            align: "start",
+                            align: "center",
                             loop: true,
                         }}
                         className="w-full"
                         onMouseEnter={plugin.current.stop}
                         onMouseLeave={plugin.current.reset}
                     >
-                        <CarouselContent>
+                        <CarouselContent className="-ml-4">
                             {officeImages.map((image, index) => (
-                                <CarouselItem key={index} className="md:basis-1/2 lg:basis-2/3 pl-4">
+                                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                                     <div className="p-1">
                                         <Card className="border-0 shadow-lg overflow-hidden rounded-3xl group">
-                                            <CardContent className="flex p-0 relative aspect-[16/10]">
+                                            <CardContent className="flex p-0 relative aspect-[4/3]">
                                                 <img
                                                     src={image.url}
                                                     alt={image.title}
                                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    <h3 className="text-white text-2xl font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                                    <h3 className="text-white text-xl font-bold mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                                         {image.title}
                                                     </h3>
-                                                    <p className="text-white/80 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                                                    <p className="text-white/80 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                                                         {image.description}
                                                     </p>
                                                 </div>
@@ -97,8 +97,8 @@ const OfficeGallery = () => {
                             ))}
                         </CarouselContent>
                         <div className="hidden md:block">
-                            <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 h-12 w-12 border-primary/20 text-primary hover:bg-primary hover:text-white transition-colors" />
-                            <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 h-12 w-12 border-primary/20 text-primary hover:bg-primary hover:text-white transition-colors" />
+                            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-primary hover:text-white transition-colors" />
+                            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-primary hover:text-white transition-colors" />
                         </div>
                     </Carousel>
                 </div>
