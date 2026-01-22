@@ -8,6 +8,8 @@ import WhySparkle from '@/components/home/WhySparkle';
 import Testimonials from '@/components/home/Testimonials';
 import CTASection from '@/components/home/CTASection';
 
+import OfficeGallery from '@/components/home/OfficeGallery';
+
 const Index = () => {
   return (
     <main className="min-h-screen">
@@ -16,6 +18,7 @@ const Index = () => {
       <Stats />
       <FeaturedPrograms />
       <Categories />
+      <OfficeGallery />
       <WhySparkle />
       <Testimonials />
       <CTASection />
