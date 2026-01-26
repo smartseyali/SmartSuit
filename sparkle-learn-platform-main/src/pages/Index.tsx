@@ -13,13 +13,13 @@ import OfficeGallery from '@/components/home/OfficeGallery';
 const Index = () => {
   return (
     <main className="min-h-screen">
-      {/* <Navbar />
+      <Navbar />
       <HeroSection />
-      {/* <Stats /> */}
+      <Stats />
       <FeaturedPrograms />
       <Categories />
       <OfficeGallery />
-      <WhySparkle /> */}
+      <WhySparkle />
       {/* <Testimonials /> */}
       <CTASection />
       <Footer />
