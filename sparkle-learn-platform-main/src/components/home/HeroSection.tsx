@@ -27,7 +27,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-3">
               <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20 animate-fade-up">
                 <Star className="w-4 h-4 text-accent fill-accent" />
-                <span className="text-sm font-medium">Rated 4.9/5 by 50,000+ learners</span>
+                <span className="text-sm font-medium">Rated 4.9/5 by 1,000+ learners</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 animate-fade-up delay-75">
                 <Award className="w-4 h-4 text-accent" />

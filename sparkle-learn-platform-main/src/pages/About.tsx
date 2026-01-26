@@ -3,6 +3,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Target, Eye, ShieldCheck, Award, Users, BookOpen } from 'lucide-react';
 
+import { stats } from '@/data/static';
+
 const About = () => {
     return (
         <main className="min-h-screen bg-background">
@@ -60,13 +62,8 @@ const About = () => {
             <section className="py-16 bg-secondary/50">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            { label: 'Successful Placements', value: '50,000+' },
-                            { label: 'Industry Partners', value: '300+' },
-                            { label: 'Expert Mentors', value: '150+' },
-                            { label: 'Course Offerings', value: '25+' },
-                        ].map((stat, index) => (
-                            <div key={index} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
+                        {stats.map((stat, index) => (
+                            <div key={stat.label} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
                                 <div className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
                             </div>
