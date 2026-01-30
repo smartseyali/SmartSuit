@@ -160,6 +160,19 @@ const ProgramDetail = () => {
                 </div>
               </div>
 
+              {/* About Program */}
+              {program.longDescription && (
+                <div className="animate-fade-up">
+                  <h2 className="text-2xl font-display font-bold text-foreground mb-6">
+                    About this Program
+                  </h2>
+                  <div 
+                    className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: program.longDescription }} 
+                  />
+                </div>
+              )}
+
               {/* Curriculum */}
               {program.curriculum && program.curriculum.length > 0 && (
                 <div className="animate-fade-up delay-100">

@@ -9,6 +9,7 @@ export interface Program {
   mode: 'Online' | 'Offline' | 'Hybrid';
   fees: string;
   description: string;
+  longDescription?: string;
   highlights: string[];
   curriculum: {
     title: string;
@@ -74,7 +75,8 @@ const adaptProductToProgram = (apiProduct: ApiProductDetail): Program => {
     eligibility: eligibility,
     careerOutcomes: careerOutcomes,
     image: apiProduct.thumbnailUrl || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71', // Fallback
-    featured: false // Default
+    featured: false, // Default
+    longDescription: apiProduct.longDescription || ''
   };
 };
 
