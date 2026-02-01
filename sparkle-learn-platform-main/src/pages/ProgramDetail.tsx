@@ -106,10 +106,10 @@ const ProgramDetail = () => {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="hero" size="xl" asChild>
-                  <Link to="/apply">Apply Now</Link>
+                  <Link to={`/apply?program=${program.id}`}>Apply Now</Link>
                 </Button>
                 <Button variant="heroOutline" size="xl" asChild>
-                  <Link to="/apply" className="gap-2">
+                  <Link to={`/apply?program=${program.id}`} className="gap-2">
                     <Play className="w-5 h-5" />
                     Download Brochure
                   </Link>
@@ -166,9 +166,9 @@ const ProgramDetail = () => {
                   <h2 className="text-2xl font-display font-bold text-foreground mb-6">
                     About this Program
                   </h2>
-                  <div 
+                  <div
                     className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: program.longDescription }} 
+                    dangerouslySetInnerHTML={{ __html: program.longDescription }}
                   />
                 </div>
               )}
@@ -281,10 +281,10 @@ const ProgramDetail = () => {
 
                     <div className="pt-4 space-y-3">
                       <Button variant="default" size="lg" className="w-full" asChild>
-                        <Link to="/apply">Apply Now</Link>
+                        <Link to={`/apply?program=${program.id}`}>Apply Now</Link>
                       </Button>
                       <Button variant="outline" size="lg" className="w-full" asChild>
-                        <Link to="/apply">Download Brochure</Link>
+                        <Link to={`/apply?program=${program.id}`}>Download Brochure</Link>
                       </Button>
                     </div>
                   </div>
@@ -299,7 +299,7 @@ const ProgramDetail = () => {
                     Our career counsellors are here to help you choose the right program.
                   </p>
                   <Button variant="outline" className="w-full" asChild>
-                    <Link to="/apply">Talk to Counsellor</Link>
+                    <Link to={`/apply?program=${program.id}`}>Talk to Counsellor</Link>
                   </Button>
                 </div>
               </div>
