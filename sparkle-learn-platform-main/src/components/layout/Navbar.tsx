@@ -60,7 +60,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path
+                className={`relative text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path
                   ? 'text-primary'
                   : isScrolled
                     ? 'text-foreground/70'
@@ -68,6 +68,9 @@ const Navbar = () => {
                   }`}
               >
                 {link.name}
+                {location.pathname === link.path && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full animate-fade-in" />
+                )}
               </Link>
             ))}
           </div>
