@@ -13,6 +13,7 @@ import Terms from "./pages/Terms";
 import Faqs from "./pages/Faqs";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import ScrollToTopButton from "./components/layout/ScrollToTopButton";
 import NotFound from "./pages/NotFound";
 
 import { useEffect } from "react";
@@ -33,6 +34,7 @@ const App = () => {
         <BrowserRouter>
           <MetaPixelObserver />
           <ScrollToTop />
+          <ScrollToTopButton />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/programs" element={<Programs />} />
