@@ -78,7 +78,7 @@ const Footer = () => {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.777093247079!2d77.08632637505057!3d11.055307989110756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857a266935555%3A0xa194605151523456!2sSri%20Chaitanya%20Techno%20School!5e0!3m2!1sen!2sin!4v1705663673539!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(80%)' }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -87,80 +87,80 @@ const Footer = () => {
               ></iframe>
             </div>
           </div>
-
-
-          {/* Programs */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Programs</h4>
-            <ul className="space-y-3">
-              {footerLinks.programs.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="font-display font-semibold mb-4">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/50 text-sm">
-            © {currentYear} Sparkle Educational Institute. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
+        {/* Programs */}
+        <div>
+          <h4 className="font-display font-semibold mb-4">Programs</h4>
+          <ul className="space-y-3">
+            {footerLinks.programs.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  {link.name}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div>
+          <h4 className="font-display font-semibold mb-4">Company</h4>
+          <ul className="space-y-3">
+            {footerLinks.company.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div>
+          <h4 className="font-display font-semibold mb-4">Support</h4>
+          <ul className="space-y-3">
+            {footerLinks.support.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.path}
+                  className="text-primary-foreground/70 hover:text-accent transition-colors text-sm"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </footer>
+
+      {/* Bottom Bar */}
+      <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p className="text-primary-foreground/50 text-sm">
+          © {currentYear} Sparkle Educational Institute. All rights reserved.
+        </p>
+        <div className="flex items-center gap-4">
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+            >
+              <social.icon className="w-5 h-5" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+    </footer >
   );
 };
 

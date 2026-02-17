@@ -45,9 +45,7 @@ const Apply = () => {
         setCourses(mappedCourses);
 
         if (programSlug) {
-          const matchingCourse = mappedCourses.find(c =>
-            c.slug === programSlug || c.id === programSlug
-          );
+          const matchingCourse = mappedCourses.find(c => c.slug === programSlug);
           if (matchingCourse) {
             setFormData(prev => ({ ...prev, course_id: matchingCourse.id }));
           }

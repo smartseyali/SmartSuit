@@ -60,9 +60,11 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-all duration-300 px-4 py-2 rounded-full ${location.pathname === link.path
-                  ? 'bg-accent text-primary font-bold shadow-glow-accent'
-                  : `hover:text-primary ${isScrolled ? 'text-foreground/70' : 'text-primary-foreground/80'}`
+                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${location.pathname === link.path
+                  ? 'text-primary'
+                  : isScrolled
+                    ? 'text-foreground/70'
+                    : 'text-primary-foreground/80'
                   }`}
               >
                 {link.name}

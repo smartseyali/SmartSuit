@@ -21,7 +21,7 @@ export interface ApiProductList {
 export const fetchCategories = async (): Promise<string[]> => {
   const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/categories`);
   if (!response.ok) {
-    return []; // fallback
+     return []; // fallback
   }
   return response.json();
 };
@@ -70,7 +70,7 @@ export const fetchProgramDetail = async (id: string): Promise<ApiProductDetail> 
 
   const allProducts = await fetchPrograms();
   const product = allProducts.find(p => p.slug === id || p.id === id);
-
+  
   if (!product) {
     throw new Error('Program not found');
   }
@@ -92,17 +92,17 @@ export interface EnquiryDto {
 }
 
 export const createEnquiry = async (enquiry: EnquiryDto): Promise<void> => {
-  const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/enquiries`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(enquiry)
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to submit enquiry');
-  }
+    const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/enquiries`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(enquiry)
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to submit enquiry');
+    }
 };
 
 export interface GalleryItem {
@@ -115,9 +115,9 @@ export interface GalleryItem {
 }
 
 export const fetchGallery = async (): Promise<GalleryItem[]> => {
-  const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/gallery`);
-  if (!response.ok) {
-    return [];
-  }
-  return response.json();
+    const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/gallery`);
+    if (!response.ok) {
+        return [];
+    }
+    return response.json();
 };
