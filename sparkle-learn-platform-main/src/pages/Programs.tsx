@@ -1,4 +1,3 @@
-import SEO from '@/components/common/SEO';
 import { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
@@ -94,10 +93,6 @@ const Programs = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <SEO
-        title="Our Programs"
-        description="Explore our industry-aligned programs designed to accelerate your career. Find the perfect fit for your goals."
-      />
       <Navbar />
 
       {/* Hero Section */}

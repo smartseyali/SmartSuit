@@ -1,4 +1,3 @@
-import SEO from '@/components/common/SEO';
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
@@ -112,10 +111,6 @@ const Apply = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <SEO
-        title="Apply Now - Start Your Journey"
-        description="Apply now for our industry-aligned programs and take the first step towards your dream career."
-      />
       <Navbar />
 
       {/* Hero Section */}
