@@ -19,17 +19,11 @@ export interface ApiProductList {
 
 // Categories
 export const fetchCategories = async (): Promise<string[]> => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/categories`);
-    if (!response.ok) {
-      console.warn('Categories API failed, falling back to defaults');
-      return ['Diploma Courses']; // Fallback based on your product data
-    }
-    return response.json();
-  } catch (error) {
-    console.error('Error fetching categories:', error);
-    return ['Diploma Courses']; // Fallback
+  const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/categories`);
+  if (!response.ok) {
+    return []; // fallback
   }
+  return response.json();
 };
 
 
@@ -57,18 +51,11 @@ export interface ApiProductDetail extends ApiProductList {
 }
 
 export const fetchPrograms = async (): Promise<ApiProductList[]> => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/products`);
-    if (!response.ok) {
-      console.error('Failed to fetch programs:', response.statusText);
-      return [];
-    }
-    return response.json();
-  } catch (error) {
-    console.error('Error fetching programs:', error);
-    // Return empty array instead of throwing, so the UI can handle "No programs found" gracefully
-    return [];
+  const response = await fetch(`${API_BASE_URL}/${SUBSCRIBER_ID}/products`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch programs');
   }
+  return response.json();
 };
 
 export const fetchProgramDetail = async (id: string): Promise<ApiProductDetail> => {
