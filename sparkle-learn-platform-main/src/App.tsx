@@ -18,6 +18,8 @@ import NotFound from "./pages/NotFound";
 
 import { useEffect } from "react";
 import { initPixel, MetaPixelObserver } from "./lib/meta-pixel";
+import SEO from "./components/common/SEO";
+import { GoogleAnalytics } from "./components/common/GoogleAnalytics";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,8 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SEO />
+          <GoogleAnalytics />
           <MetaPixelObserver />
           <ScrollToTop />
           <ScrollToTopButton />

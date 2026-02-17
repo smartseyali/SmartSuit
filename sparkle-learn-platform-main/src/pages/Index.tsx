@@ -1,3 +1,4 @@
+import SEO from '@/components/common/SEO';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/home/HeroSection';
@@ -7,12 +8,12 @@ import Categories from '@/components/home/Categories';
 import WhySparkle from '@/components/home/WhySparkle';
 import Testimonials from '@/components/home/Testimonials';
 import CTASection from '@/components/home/CTASection';
-
 import OfficeGallery from '@/components/home/OfficeGallery';
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <SEO />
       <Navbar />
       <HeroSection />
       <Stats />
