@@ -24,7 +24,7 @@ const SEO = ({
     noindex = false,
 }: SEOProps) => {
     const location = useLocation();
-    const siteUrl = window.location.origin;
+    const siteUrl = "https://www.sparkleahs.com";
     const currentUrl = canonicalUrl || `${siteUrl}${location.pathname}`;
     const defaultTitle = "Sparkle Educational Institute - Transform Your Career";
     const defaultDescription = "India's most trusted career acceleration platform. Learn from industry experts and get placed at top companies.";
@@ -65,8 +65,8 @@ const SEO = ({
                     "@context": "https://schema.org",
                     "@type": "EducationalOrganization",
                     "name": "Sparkle Educational Institute",
-                    "url": siteUrl,
-                    "logo": `${siteUrl}/logo.jpg`,
+                    "url": "https://www.sparkleahs.com",
+                    "logo": "https://www.sparkleahs.com/logo.jpg",
                     "sameAs": [
                         "https://www.facebook.com/sparkleedu",
                         "https://www.linkedin.com/company/sparkleedu",
