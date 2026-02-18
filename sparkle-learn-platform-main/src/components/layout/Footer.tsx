@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
             <div className="mt-4 w-full h-40 rounded-xl overflow-hidden border border-white/10 shadow-sm">
               <iframe
-                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Sparkle+Institute+of+Allied+Health+Science&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

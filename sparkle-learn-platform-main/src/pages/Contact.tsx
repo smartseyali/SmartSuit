@@ -135,7 +135,7 @@ const Contact = () => {
             {/* Google Map */}
             <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border shadow-elevated relative animate-fade-up delay-200 group">
               <iframe
-                src="https://maps.google.com/maps?q=11.068538,77.081520&hl=en&z=14&output=embed"
+                src="https://maps.google.com/maps?q=Sparkle+Institute+of+Allied+Health+Science&hl=en&z=14&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: 'grayscale(0%) contrast(1.1)' }}
@@ -159,7 +159,7 @@ const Contact = () => {
                       Near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062
                     </p>
                     <a
-                      href="https://www.google.com/maps?q=11.068538,77.081520"
+                      href="https://www.google.com/maps?q=Sparkle+Institute+of+Allied+Health+Science"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-bold text-primary mt-3 hover:underline"
