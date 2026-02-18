@@ -75,14 +75,14 @@ const Footer = () => {
             </div>
             <div className="mt-4 w-full h-40 rounded-xl overflow-hidden border border-white/10 shadow-sm">
               <iframe
-                src="https://maps.google.com/maps?q=11.068538,77.081520&hl=en&z=14&output=embed&t=k"
+                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full opacity-90 hover:opacity-100 transition-opacity"
+                className="w-full h-full"
                 title="Campus Location"
               ></iframe>
             </div>
