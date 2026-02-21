@@ -126,11 +126,7 @@ const ProgramDetail = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Price Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-card rounded-xl shadow-elevated p-4">
-                <div className="text-sm text-muted-foreground">Program Fee</div>
-                <div className="text-2xl font-display font-bold text-primary">{program.fees}</div>
-              </div>
+              {/* Program Details Badge removed */}
             </div>
           </div>
         </div>
@@ -242,12 +238,8 @@ const ProgramDetail = () => {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-28 space-y-6">
-                {/* Price Card */}
+                {/* Program Info Card */}
                 <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden animate-fade-up">
-                  <div className="p-6 bg-primary text-primary-foreground">
-                    <div className="text-sm opacity-80 mb-1">Program Fee</div>
-                    <div className="text-3xl font-display font-bold">{program.fees}</div>
-                  </div>
                   <div className="p-6 space-y-4">
                     <div className="flex items-center gap-3 text-sm">
                       <Clock className="w-5 h-5 text-muted-foreground" />

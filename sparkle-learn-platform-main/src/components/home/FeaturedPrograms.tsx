@@ -73,8 +73,7 @@ const FeaturedPrograms = () => {
                     <span>{program.mode}</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-bold">{program.fees}</span>
+                <div className="flex items-center justify-end">
                   <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                     View Details
                     <ArrowRight className="w-4 h-4" />
