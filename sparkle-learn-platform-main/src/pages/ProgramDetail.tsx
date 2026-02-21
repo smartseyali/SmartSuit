@@ -108,12 +108,6 @@ const ProgramDetail = () => {
                 <Button variant="hero" size="xl" asChild>
                   <Link to="/apply">Apply Now</Link>
                 </Button>
-                <Button variant="heroOutline" size="xl" asChild>
-                  <Link to="/apply" className="gap-2">
-                    <Play className="w-5 h-5" />
-                    Download Brochure
-                  </Link>
-                </Button>
               </div>
             </div>
 
@@ -261,9 +255,6 @@ const ProgramDetail = () => {
                     <div className="pt-4 space-y-3">
                       <Button variant="default" size="lg" className="w-full" asChild>
                         <Link to="/apply">Apply Now</Link>
-                      </Button>
-                      <Button variant="outline" size="lg" className="w-full" asChild>
-                        <Link to="/apply">Download Brochure</Link>
                       </Button>
                     </div>
                   </div>
