@@ -135,8 +135,7 @@ const Contact = () => {
             {/* Google Map */}
             <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border shadow-elevated relative animate-fade-up delay-200 group">
               <iframe
-                src="https://maps.google.com/maps?q=Sparkle+Institute+of+Allied+Health+Science&hl=en&z=14&output=embed"
-                width="100%"
+                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed" width="100%"
                 height="100%"
                 style={{ border: 0, filter: 'grayscale(0%) contrast(1.1)' }}
                 allowFullScreen={true}
