@@ -108,6 +108,12 @@ const ProgramDetail = () => {
                 <Button variant="hero" size="xl" asChild>
                   <Link to={`/apply?program=${program.id}`}>Apply Now</Link>
                 </Button>
+                {/* <Button variant="heroOutline" size="xl" asChild>
+                  <Link to={`/apply?program=${program.id}`} className="gap-2">
+                    <Play className="w-5 h-5" />
+                    Download Brochure
+                  </Link>
+                </Button> */}
               </div>
             </div>
 
@@ -120,7 +126,11 @@ const ProgramDetail = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Program Details Badge removed */}
+              {/* Price Badge */}
+              {/* <div className="absolute -bottom-6 -left-6 bg-card rounded-xl shadow-elevated p-4">
+                <div className="text-sm text-muted-foreground">Program Fee</div>
+                <div className="text-2xl font-display font-bold text-primary">{program.fees}</div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -149,6 +159,19 @@ const ProgramDetail = () => {
                   ))}
                 </div>
               </div>
+
+              {/* About Program */}
+              {program.longDescription && (
+                <div className="animate-fade-up">
+                  <h2 className="text-2xl font-display font-bold text-foreground mb-6">
+                    About this Program
+                  </h2>
+                  <div
+                    className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: program.longDescription }}
+                  />
+                </div>
+              )}
 
               {/* Curriculum */}
               {program.curriculum && program.curriculum.length > 0 && (
@@ -232,7 +255,7 @@ const ProgramDetail = () => {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-28 space-y-6">
-                {/* Program Info Card */}
+                {/* Price Card */}
                 <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden animate-fade-up">
                   <div className="p-6 space-y-4">
                     <div className="flex items-center gap-3 text-sm">

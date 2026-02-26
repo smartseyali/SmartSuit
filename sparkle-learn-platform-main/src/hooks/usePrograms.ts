@@ -9,6 +9,7 @@ export interface Program {
   mode: 'Online' | 'Offline' | 'Hybrid';
   fees: string;
   description: string;
+  longDescription?: string;
   highlights: string[];
   curriculum: {
     title: string;
@@ -21,10 +22,10 @@ export interface Program {
 }
 
 export const useCategories = () => {
-    return useQuery({
-        queryKey: ['categories'],
-        queryFn: fetchCategories
-    });
+  return useQuery({
+    queryKey: ['categories'],
+    queryFn: fetchCategories
+  });
 };
 
 // Helper to safely parse JSON attributes
@@ -42,13 +43,13 @@ const parseJsonAttribute = <T>(attributes: { name: string; value: string }[], ke
 // Adapter function to convert API response to UI Program model
 const adaptProductToProgram = (apiProduct: ApiProductDetail): Program => {
   // Extract simple attributes
-  const duration = apiProduct.serviceDetails?.duration || 
-                   apiProduct.attributes.find(a => a.name === 'Duration')?.value || 
-                   'TBD';
-  const mode = (apiProduct.serviceDetails?.type || 
-               apiProduct.attributes.find(a => a.name === 'Mode')?.value || 
-               'Online') as 'Online' | 'Offline' | 'Hybrid';
-  
+  const duration = apiProduct.serviceDetails?.duration ||
+    apiProduct.attributes.find(a => a.name === 'Duration')?.value ||
+    'TBD';
+  const mode = (apiProduct.serviceDetails?.type ||
+    apiProduct.attributes.find(a => a.name === 'Mode')?.value ||
+    'Online') as 'Online' | 'Offline' | 'Hybrid';
+
   // Parse complex JSON attributes
   const curriculum = parseJsonAttribute(apiProduct.attributes, 'JSON_Curriculum', []);
   const eligibility = parseJsonAttribute(apiProduct.attributes, 'JSON_Eligibility', []);
@@ -69,6 +70,7 @@ const adaptProductToProgram = (apiProduct: ApiProductDetail): Program => {
     mode: mode,
     fees: formattedFees,
     description: apiProduct.shortDescription || apiProduct.metaDescription, // Use short desc for cards
+    longDescription: apiProduct.longDescription,
     highlights: apiProduct.features && apiProduct.features.length > 0 ? apiProduct.features : ['Industry recognized'],
     curriculum: curriculum,
     eligibility: eligibility,
@@ -89,19 +91,19 @@ export const usePrograms = () => {
       // Looking at ClientProductListDto, it DOES NOT have attributes/features.
       // It has: Name, Code, Category, Brand, Slug, Price, Thumbnail.
       // The UI 'Programs.tsx' needs: ID, Name, Category, Description, Image, Mode, Duration.
-      
+
       // ISSUE: ClientProductListDto misses Description, Mode, Duration.
       // WORKAROUND: We will fetch the list, mapped minimally. 
       // Ideally we should update the List DTO. For now we use placeholders or fetch details for each (N+1) - bad performance but accurate.
       // BETTER: For the list page, let's just use what we have and maybe simple defaults, or just assume the List DTO will be updated later.
-      
-      
+
+
       return apiProducts.map(p => ({
         id: p.slug || p.id,
         name: p.name,
         category: p.categoryName || 'General',
         duration: p.duration || 'TBD',
-        mode: (p.serviceType as any) || 'Online', 
+        mode: (p.serviceType as any) || 'Online',
         fees: new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(p.price),
         description: p.shortDescription || p.name,
         highlights: [],
