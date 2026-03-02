@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 
 import { useEffect } from "react";
 import { initPixel, MetaPixelObserver } from "./lib/meta-pixel";
+import { AnalyticsObserver } from "./lib/google-analytics";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <MetaPixelObserver />
+          <AnalyticsObserver />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
