@@ -205,6 +205,33 @@ const Contact = () => {
               </div>
             </div>
           </div>
+
+          {/* Google Review CTA for GBP Optimization */}
+          <div className="mt-16 max-w-4xl mx-auto p-12 bg-accent/10 border-2 border-accent/20 rounded-[3rem] text-center space-y-6 relative overflow-hidden flex flex-col items-center">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16" />
+            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-4">
+              <img
+                src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                alt="Google"
+                className="w-12 h-12"
+              />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-display font-black text-foreground">
+              Are you a student? <span className="text-primary italic">Share your experience!</span>
+            </h3>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg italic leading-relaxed">
+              "Your feedback helps us transform more careers in Coimbatore. It takes less than 30 seconds!"
+            </p>
+            <Button size="xl" className="rounded-2xl shadow-glow-primary px-12" asChild>
+              <a
+                href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rate Us on Google
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 

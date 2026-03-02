@@ -34,6 +34,7 @@ const RecentBlog = () => {
                                     src={post.image}
                                     alt={post.title}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading="lazy"
                                 />
                                 <div className="absolute top-4 left-4">
                                     <span className="bg-white/90 backdrop-blur-md text-foreground text-[10px] font-black px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest">

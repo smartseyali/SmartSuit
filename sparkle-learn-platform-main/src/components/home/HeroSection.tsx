@@ -103,6 +103,7 @@ const HeroSection = () => {
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop"
                   alt="Students learning"
                   className="w-full h-48 object-cover"
+                  fetchPriority="high"
                 />
                 <div className="p-6">
                   <div className="text-sm text-muted-foreground mb-2">Featured Program</div>
