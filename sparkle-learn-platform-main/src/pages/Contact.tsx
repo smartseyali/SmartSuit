@@ -142,6 +142,7 @@ const Contact = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
+                title="Campus Location Map"
               ></iframe>
 
               {/* Overlay Overlay for style (optional, removed for better usability) */}

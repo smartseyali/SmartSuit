@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
-                <img src="/logo.jpg" alt="Sparkle Logo" className="w-full h-full object-contain p-1" />
+                <img src="/logo.jpg" alt="Sparkle Logo" title="Sparkle Logo" className="w-full h-full object-contain p-1" />
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="text-xl font-display font-bold">Sparkle</span>

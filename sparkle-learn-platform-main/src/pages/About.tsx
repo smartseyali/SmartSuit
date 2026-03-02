@@ -111,6 +111,7 @@ const About = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
                                     alt="Team Collaboration"
+                                    title="Sparkle Campus - Team Collaboration"
                                     className="w-full h-auto"
                                 />
                             </div>

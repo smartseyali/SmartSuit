@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-soft group-hover:shadow-elevated transition-all duration-300 overflow-hidden">
-              <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain p-1" />
+              <img src="/logo.jpg" alt="Sparkle Logo" title="Sparkle Logo" className="w-full h-full object-contain p-1" />
             </div>
             <div className="flex flex-col leading-tight">
               <span className={`text-xl font-display font-bold transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-primary-foreground'

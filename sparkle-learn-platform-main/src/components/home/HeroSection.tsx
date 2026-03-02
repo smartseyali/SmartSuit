@@ -132,9 +132,9 @@ const HeroSection = () => {
               <div className="absolute bottom-20 left-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-700">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sparkle Student" title="Sparkle Student" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Sparkle Learner" title="Sparkle Learner" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Sparkle Alumnus" title="Sparkle Alumnus" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-foreground">Active Learners</div>
