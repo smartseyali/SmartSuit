@@ -2,12 +2,12 @@ import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Target, Eye, ShieldCheck, Award, Users, BookOpen } from 'lucide-react';
-import Meta from '@/components/common/Meta';
+import SEO from '@/components/common/SEO';
 
 const About = () => {
     return (
         <main className="min-h-screen bg-background">
-            <Meta
+            <SEO
                 title="About Sparkle Allied Health Science | Mission, Vision & Faculty"
                 description="Learn about Sparkle Allied Health Science history, mission, expert faculty, and student success stories. A trusted institute dedicated to quality healthcare education."
             />

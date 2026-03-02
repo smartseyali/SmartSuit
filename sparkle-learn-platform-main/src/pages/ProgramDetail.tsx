@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/accordion';
 import { useProgram, usePrograms } from '@/hooks/usePrograms';
 import { toast } from 'sonner';
-import Meta from '@/components/common/Meta';
+import SEO from '@/components/common/SEO';
 
 const ProgramDetail = () => {
   const { id } = useParams();
@@ -84,7 +84,7 @@ const ProgramDetail = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <Meta
+      <SEO
         title={`${program.name} | Allied Health Programs`}
         description={program.description}
       />

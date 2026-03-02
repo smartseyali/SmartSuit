@@ -4,12 +4,12 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/data/blog';
 import { Calendar, User, ArrowRight, BookOpen, Clock } from 'lucide-react';
-import Meta from '@/components/common/Meta';
+import SEO from '@/components/common/SEO';
 
 const Blog = () => {
     return (
         <main className="min-h-screen bg-background">
-            <Meta
+            <SEO
                 title="Sparkle Insights | Allied Health Science Careers & Guide"
                 description="Stay updated with Sparkle Insights. Professional guides on Allied Health Science careers, salaries, job roles, and future opportunities in India."
             />

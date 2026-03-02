@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/data/blog';
 import { Calendar, User, ArrowLeft, ArrowRight, Clock, Tags, Facebook, Twitter, Linkedin, Share2 } from 'lucide-react';
-import Meta from '@/components/common/Meta';
+import SEO from '@/components/common/SEO';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -28,7 +28,7 @@ const BlogPost = () => {
 
     return (
         <main className="min-h-screen bg-background">
-            <Meta
+            <SEO
                 title={`${post.title} | Sparkle Insights`}
                 description={post.excerpt}
             />

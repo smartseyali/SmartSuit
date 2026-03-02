@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import Meta from '@/components/common/Meta';
+import SEO from '@/components/common/SEO';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,7 +45,7 @@ const Contact = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <Meta
+      <SEO
         title="Contact Sparkle Allied Health Science – Enquiry & Support"
         description="Get in touch with Sparkle Allied Health Science. Call, email, or visit us for course queries, admission help, or campus tour scheduling."
       />
