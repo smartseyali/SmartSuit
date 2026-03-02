@@ -9,6 +9,7 @@ import Testimonials from '@/components/home/Testimonials';
 import CTASection from '@/components/home/CTASection';
 
 import OfficeGallery from '@/components/home/OfficeGallery';
+import RecentBlog from '@/components/home/RecentBlog';
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <OfficeGallery />
       <WhySparkle />
       {/* <Testimonials /> */}
+      <RecentBlog />
       <CTASection />
       <Footer />
     </main>

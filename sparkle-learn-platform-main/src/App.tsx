@@ -13,6 +13,8 @@ import Terms from "./pages/Terms";
 import Faqs from "./pages/Faqs";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 import { useEffect } from "react";
@@ -45,6 +47,8 @@ const App = () => {
             <Route path="/terms" element={<Terms />} />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

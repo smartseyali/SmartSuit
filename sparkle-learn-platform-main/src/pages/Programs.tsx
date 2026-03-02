@@ -8,6 +8,7 @@ import {
   ChevronDown, LayoutGrid, ListFilter, SlidersHorizontal, Award
 } from 'lucide-react';
 import { usePrograms, useCategories } from '@/hooks/usePrograms';
+import Meta from '@/components/common/Meta';
 import {
   Select,
   SelectContent,
@@ -93,6 +94,10 @@ const Programs = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <Meta
+        title="Allied Health Science Courses in India – Sparkle Institute"
+        description="Explore Allied Health Science courses at Sparkle Institute including diploma and degree programs. Learn about eligibility, curriculum, career scope, and admissions."
+      />
       <Navbar />
 
       {/* Hero Section */}
