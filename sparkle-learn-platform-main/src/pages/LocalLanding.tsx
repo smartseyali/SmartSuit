@@ -12,6 +12,36 @@ const CoimbatoreLanding = () => {
             <SEO
                 title="Best Allied Health Science Courses in Coimbatore | Sparkle AHS"
                 description="Looking for Allied Health Science courses in Coimbatore? Sparkle AHS offers diploma and degree programs with hands-on clinical training at top hospitals in Coimbatore."
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "What is the best allied health science institute in Coimbatore?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Sparkle Allied Health Science is a leading institute in Coimbatore offering B.Sc and Diploma courses with hands-on clinical training at premium multi-specialty hospitals."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does Sparkle Allied Health Science offer diploma courses?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Yes, we offer both B.Sc and 1-year Diploma courses in medical science and hospital management designed for immediate employability."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Where is Sparkle Allied Health Science located?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Our Coimbatore campus is located near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062."
+                            }
+                        }
+                    ]
+                }}
             />
             <Navbar />
 

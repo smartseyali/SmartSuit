@@ -4,9 +4,10 @@ import { useLocation } from "react-router-dom";
 interface SEOProps {
     title?: string;
     description?: string;
+    schema?: any;
 }
 
-export default function SEO({ title, description }: SEOProps) {
+export default function SEO({ title, description, schema }: SEOProps) {
     const location = useLocation();
     const canonicalUrl = `https://sparkleahs.com${location.pathname}`;
 
@@ -15,6 +16,11 @@ export default function SEO({ title, description }: SEOProps) {
             {title && <title>{title}</title>}
             {description && <meta name="description" content={description} />}
             <link rel="canonical" href={canonicalUrl} />
+            {schema && (
+                <script type="application/ld+json">
+                    {JSON.stringify(schema)}
+                </script>
+            )}
         </Helmet>
     );
 }
