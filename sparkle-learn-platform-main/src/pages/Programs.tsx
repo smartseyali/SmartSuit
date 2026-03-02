@@ -95,8 +95,8 @@ const Programs = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO
-        title="Allied Health Science Courses in India – Sparkle Institute"
-        description="Explore Allied Health Science courses at Sparkle Institute including diploma and degree programs. Learn about eligibility, curriculum, career scope, and admissions."
+        title="Allied Health Programs | Sparkle AHS"
+        description="Explore allied health programs offered by Sparkle Allied Health Science institute in India."
       />
       <Navbar />
 
