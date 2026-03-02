@@ -441,6 +441,49 @@ const ProgramDetail = () => {
         </div>
       </section>
 
+      {/* Career Resources Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+            <div className="max-w-xl text-center md:text-left">
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Knowledge Cluster</span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground leading-tight">
+                Career & Admission <span className="text-primary italic">Resources</span>
+              </h2>
+            </div>
+            <Button variant="outline" asChild className="rounded-2xl border-2 hover:bg-primary hover:text-primary-foreground transition-all">
+              <Link to="/blog">Browse All Insights</Link>
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Link
+              to="/blog/what-is-allied-health-science"
+              className="group bg-card p-8 rounded-[2.5rem] border border-border/50 hover:shadow-elevated transition-all flex flex-col md:flex-row items-center gap-6"
+            >
+              <div className="w-20 h-20 shrink-0 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                <GraduationCap className="w-10 h-10" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">What is Allied Health Science?</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">Complete guide to the field, eligibility, and the expanding scope in India.</p>
+              </div>
+            </Link>
+            <Link
+              to="/blog/allied-health-science-career-guide"
+              className="group bg-card p-8 rounded-[2.5rem] border border-border/50 hover:shadow-elevated transition-all flex flex-col md:flex-row items-center gap-6"
+            >
+              <div className="w-20 h-20 shrink-0 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                <Briefcase className="w-10 h-10" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold group-hover:text-accent transition-colors">Career Guide – Courses & Growth</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">Salary expectations, top job roles, and growth opportunities for graduates.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

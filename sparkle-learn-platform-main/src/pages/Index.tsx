@@ -16,8 +16,8 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Sparkle Allied Health Science | Leading Allied Health Institute in India"
-        description="Join Sparkle Allied Health Science — top allied health science institute offering industry-oriented programs, expert faculty, and practical training. Apply now for 2026 courses."
+        title="Sparkle Allied Health Science | Best Allied Health Institute in Coimbatore, India"
+        description="Join Sparkle Allied Health Science — the top allied health science institute in Coimbatore. Offering premium clinical programs and professional training for 2026 admissions."
       />
       <Navbar />
       <HeroSection />
