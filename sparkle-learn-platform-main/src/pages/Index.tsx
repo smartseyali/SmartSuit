@@ -11,19 +11,21 @@ import CTASection from '@/components/home/CTASection';
 
 import OfficeGallery from '@/components/home/OfficeGallery';
 import RecentBlog from '@/components/home/RecentBlog';
+import SEOContent from '@/components/home/SEOContent';
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Sparkle Allied Health Science | Best Allied Health Institute in Coimbatore, India"
-        description="Join Sparkle Allied Health Science — the top allied health science institute in Coimbatore. Offering premium clinical programs and professional training for 2026 admissions."
+        title="Sparkle Allied Health Science Institute Coimbatore | Diploma & Medical Lab Courses"
+        description="Join Sparkle Allied Health Science — the top allied health science institute in Coimbatore. Offering premium Diploma & Medical Lab programs at Neelambur campus for 2026."
       />
       <Navbar />
       <HeroSection />
       <Stats />
       <FeaturedPrograms />
       <Categories />
+      <SEOContent />
       <OfficeGallery />
       <WhySparkle />
       {/* <Testimonials /> */}

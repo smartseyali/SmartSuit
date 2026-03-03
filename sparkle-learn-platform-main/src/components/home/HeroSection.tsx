@@ -36,8 +36,8 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight animate-fade-up delay-100">
-              Transform Your Career with
-              <span className="block text-accent mt-2">Industry-Ready Skills</span>
+              Transform Your Career with <br />
+              <span className="text-accent italic">Allied Health Science Courses in Coimbatore</span>
             </h1>
 
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl animate-fade-up delay-200">

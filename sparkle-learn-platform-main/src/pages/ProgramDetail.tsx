@@ -87,35 +87,23 @@ const ProgramDetail = () => {
       <SEO
         title={`${program.name} | Allied Health Programs`}
         description={program.description}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": program.name,
+          "description": program.description,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Sparkle Allied Health Science",
+            "sameAs": "https://sparkleahs.com"
+          },
+          "offers": {
+            "@type": "Offer",
+            "category": "Education"
+          }
+        }}
       />
       <Navbar />
-
-      {/* Course Schema for SEO */}
-      {program && (
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Course",
-            "name": program.name,
-            "description": program.description,
-            "provider": {
-              "@type": "EducationalOrganization",
-              "name": "Sparkle Educational Institute",
-              "sameAs": "https://sparkleahs.com"
-            },
-            "educationalCredentialAwarded": "Professional Certification",
-            "occupationalCategory": program.category,
-            "offers": {
-              "@type": "Offer",
-              "category": "Paid",
-              "offeredBy": {
-                "@type": "EducationalOrganization",
-                "name": "Sparkle Educational Institute"
-              }
-            }
-          })}
-        </script>
-      )}
 
       {/* Hero Section */}
       <section className="pt-28 pb-16 bg-hero-gradient relative overflow-hidden">
@@ -366,55 +354,57 @@ const ProgramDetail = () => {
       </section>
 
       {/* Related Programs Section */}
-      {relatedPrograms.length > 0 && (
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-3xl font-display font-bold text-foreground">
-                Related <span className="text-primary">Programs</span>
-              </h2>
-              <Button variant="outline" asChild>
-                <Link to={`/programs?category=${program.category}`}>View Category</Link>
-              </Button>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {relatedPrograms.map((p, index) => (
-                <Link
-                  key={p.id}
-                  to={`/programs/${p.id}`}
-                  className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 border border-border/50 animate-fade-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      title={p.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-display font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                      {p.name}
-                    </h3>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{p.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <ArrowRight className="w-4 h-4" />
-                        <span>View Details</span>
+      {
+        relatedPrograms.length > 0 && (
+          <section className="py-20 bg-secondary/30">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="text-3xl font-display font-bold text-foreground">
+                  Related <span className="text-primary">Programs</span>
+                </h2>
+                <Button variant="outline" asChild>
+                  <Link to={`/programs?category=${program.category}`}>View Category</Link>
+                </Button>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {relatedPrograms.map((p, index) => (
+                  <Link
+                    key={p.id}
+                    to={`/programs/${p.id}`}
+                    className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 border border-border/50 animate-fade-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        title={p.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-display font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                        {p.name}
+                      </h3>
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{p.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <ArrowRight className="w-4 h-4" />
+                          <span>View Details</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )
+      }
 
       {/* CTA Section */}
       <section className="py-20">
@@ -485,7 +475,7 @@ const ProgramDetail = () => {
       </section>
 
       <Footer />
-    </main>
+    </main >
   );
 };
 

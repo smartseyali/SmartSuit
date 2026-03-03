@@ -20,8 +20,6 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const CoimbatoreLanding = lazy(() => import("./pages/LocalLanding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-import { useEffect } from "react";
-import { initPixel, MetaPixelObserver } from "./lib/meta-pixel";
 import { AnalyticsObserver } from "./lib/google-analytics";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/layout/ScrollToTop";
@@ -29,10 +27,6 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 const queryClient = new QueryClient();
 
 const App = () => {
-  useEffect(() => {
-    initPixel();
-  }, []);
-
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
@@ -40,7 +34,6 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <MetaPixelObserver />
             <AnalyticsObserver />
             <ScrollToTop />
             <Suspense fallback={

@@ -61,7 +61,8 @@
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-    {
+    [
+      {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Sparkle Allied Health Science",
@@ -78,13 +79,64 @@
         "addressCountry": "IN"
       },
       "telephone": "+918220928732",
+      "department": [
+        {
+          "@type": "Organization",
+          "name": "Medical Lab Technology Department"
+        },
+        {
+          "@type": "Organization",
+          "name": "Nursing assistant Training Department"
+        },
+        {
+          "@type": "Organization",
+          "name": "Hospital Administration & Management"
+        }
+      ],
       "email": "hello@sparkle.edu",
       "sameAs": [
         "https://www.facebook.com/sparkleahs",
         "https://www.instagram.com/sparkleahs",
         "https://www.linkedin.com/company/sparkleahs"
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Sparkle Allied Health Science",
+      "image": "https://sparkleahs.com/logo.jpg",
+      "@id": "https://sparkleahs.com",
+      "url": "https://sparkleahs.com",
+      "telephone": "+918220928732",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Sri Chaitanya Techno School, Avinashi Road, Neelambur",
+        "addressLocality": "Coimbatore",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "641062",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 11.0664,
+        "longitude": 77.0623
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
     }
+  ]
     </script>
 
   <!-- Open Graph -->
