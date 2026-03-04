@@ -102,6 +102,7 @@ const HeroSection = () => {
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop"
                   alt="Students learning"
+                  title="Students learning"
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
@@ -132,9 +133,9 @@ const HeroSection = () => {
               <div className="absolute bottom-20 left-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-700">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Student 1" title="Student 1" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Student 2" title="Student 2" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Student 3" title="Student 3" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-foreground">Active Learners</div>

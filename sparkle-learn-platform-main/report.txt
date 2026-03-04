@@ -1,0 +1,153 @@
+SEO  Report  01
+ 
+------------------
+Site  Audit  Site:  https://sparkleahs.com   
+Onpage  SEO:  
+  The  Title  is  ok,  but  the  Description  is  200  Characters  is  too  long.  Only  150  to  160  
+Characters
+ 
+is
+ 
+best
+ 
+for
+ 
+SEO.
+ 
+And
+ 
+Also
+ 
+Meta
+ 
+keywords
+ 
+are
+ 
+ok.
+ 
+ 
+
+------------------
+There  are  15  images  on  the  site,  but  3  are  without  alt,  and  15  are  without  title.    
+Off-Page  SEO:  
+ Only  3  backlinks  is  avaliable.  Backlink  counts  are  needed  to  improve.   
+Technical  SEO:  
+ On  the  site,  no  schema  was  found.  
+
+------------------
+ No  Sitemap  found.   
+ This  Website  in  Mobile  Performance  is  good.   
+
+------------------
+ Also  Desktop  performance  is  good.   
+Tools:  ●  Google  Analytics  -  Not  Connected  ●  Google  Search  Console  -  Not  Connected  ●  Google  Tag  Manager  -  Not  Connected   ●  MS  Clarity  -  Not  Connected  ●  Facebook  Pixel  -  Not  Connected   
+
+------------------
+  Also,  this  website  expire  soon.  Only  have  48  days.  
+
+------------------
+SEO  Report  02
+ 
+------------------
+Site  Audit  Site:  https://sparkleahs.com   
+On  Page  SEO:  
+  The  title  and  Description  are  too  long.  The  title  is  only  60  characters,  which  is  good,  and  
+the
+ 
+description
+ 
+has
+ 
+only
+ 
+150
+ 
+to
+ 
+160
+ 
+characters,
+ 
+which
+ 
+is
+ 
+best
+ 
+visibility
+ 
+for
+ 
+SEO.
+  
+ The  total  Image  in  this  website  is  18.  But  4  images  have  no  title.      
+
+------------------
+Off-Page  SEO:  
+ There  are  only  3  backlinks  available  on  this  website.   
+Technical  SEO:  
+ In  Technical  SEO,  there  are  2  types  of  Schema  that  they  use  on  their  website.    
+
+------------------
+ Local  Business  and  Organization  Schema  they  used  on  their  website.    
+ The  website  have  sitemap,  which  is  good.  https://sparkleahs.com/sitemap.xml  
+ LCP,  CLS,  and   FCP  are  metric  values  for  a  perfect  Website  speed.  But  this  website  has  
+low
+ 
+performance
+ 
+on
+ 
+mobile.
+ 
+It
+ 
+may
+ 
+affect
+ 
+the
+ 
+mobile
+ 
+users.
+ 
+
+------------------
+ The  website  performance  for  Decktop.       
+ In  the  Footer  Section,  the  Social  Media  Button  is  Not  Working.  If  someone  clicks  those  
+buttons
+ 
+its
+ 
+will
+ 
+redirect
+ 
+to
+ 
+the
+ 
+same
+ 
+home
+ 
+page
+ 
+on
+ 
+the
+ 
+website.
+ 
+      
+
+------------------
+Tools:   ●  Google  Analytics  -  Connected   ●  Google  Search  Console  -  Connected  ●  Google  Tag  Manager  -  Connected   ●  MS  Clarity  -  Connected   ●  Facebook  Pixel  -  Not  Connected    
+ Google  Analytics  is  connected.    
+ Google  Search  Console  is  Connected  but  could  not  find  the  verification  ID.   
+
+------------------
+ MS  clarity  and  Google  Tag  manager.   
+  

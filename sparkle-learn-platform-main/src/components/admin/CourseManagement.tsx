@@ -79,8 +79,8 @@ const CourseManagement = ({ isAdmin }: CourseManagementProps) => {
     setLoading(true);
     // Mock fetch
     setTimeout(() => {
-        setCourses([]);
-        setLoading(false);
+      setCourses([]);
+      setLoading(false);
     }, 500);
   };
 
@@ -281,7 +281,7 @@ const CourseManagement = ({ isAdmin }: CourseManagementProps) => {
                       onChange={async (e) => {
                         const file = e.target.files?.[0];
                         if (!file) return;
-                        
+
                         if (!file.type.startsWith('image/')) {
                           toast.error('Please upload an image file');
                           return;
@@ -290,9 +290,9 @@ const CourseManagement = ({ isAdmin }: CourseManagementProps) => {
                         setUploading(true);
                         // Mock upload
                         setTimeout(() => {
-                             setFormData({ ...formData, image_url: URL.createObjectURL(file) });
-                             setUploading(false);
-                             toast.success('Image uploaded (Mock)');
+                          setFormData({ ...formData, image_url: URL.createObjectURL(file) });
+                          setUploading(false);
+                          toast.success('Image uploaded (Mock)');
                         }, 500);
                       }}
                       className="hidden"
@@ -322,7 +322,12 @@ const CourseManagement = ({ isAdmin }: CourseManagementProps) => {
                       )}
                     </div>
                     {formData.image_url && (
-                      <img src={formData.image_url} alt="Preview" className="w-full h-24 object-cover rounded-lg mt-2" />
+                      <img
+                        src={formData.image_url}
+                        alt="Course Preview"
+                        title="Course Preview"
+                        className="w-full h-24 object-cover rounded-lg mt-2"
+                      />
                     )}
                   </div>
                 </div>

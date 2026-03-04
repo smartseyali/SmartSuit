@@ -123,6 +123,7 @@ const ProgramDetail = () => {
                 <img
                   src={program.image}
                   alt={program.name}
+                  title={program.name}
                   className="w-full h-full object-cover"
                 />
               </div>

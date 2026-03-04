@@ -26,11 +26,11 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Facebook, href: 'https://facebook.com/sparkleahs', label: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/sparkleahs', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/sparkleahs', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://instagram.com/sparkleahs', label: 'Instagram' },
+    { icon: Youtube, href: 'https://youtube.com/sparkleahs', label: 'YouTube' },
   ];
 
   return (
@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
-                <img src="/logo.jpg" alt="Sparkle Logo" className="w-full h-full object-contain p-1" />
+                <img src="/logo.jpg" alt="Sparkle Logo" title="Sparkle Logo" className="w-full h-full object-contain p-1" />
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="text-xl font-display font-bold">Sparkle</span>
@@ -151,6 +151,8 @@ const Footer = () => {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label={social.label}
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               >

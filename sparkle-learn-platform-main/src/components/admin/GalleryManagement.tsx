@@ -52,8 +52,8 @@ const GalleryManagement = ({ isAdmin }: GalleryManagementProps) => {
     setLoading(true);
     // Mock fetch
     setTimeout(() => {
-        setItems([]);
-        setLoading(false);
+      setItems([]);
+      setLoading(false);
     }, 500);
   };
 
@@ -99,13 +99,13 @@ const GalleryManagement = ({ isAdmin }: GalleryManagementProps) => {
     setUploading(true);
     // Mock upload
     setTimeout(() => {
-        setFormData({
-            ...formData,
-            media_url: URL.createObjectURL(file),
-            media_type: isVideo ? 'video' : 'image',
-        });
-        setUploading(false);
-        toast.success('File uploaded successfully (Mock)');
+      setFormData({
+        ...formData,
+        media_url: URL.createObjectURL(file),
+        media_type: isVideo ? 'video' : 'image',
+      });
+      setUploading(false);
+      toast.success('File uploaded successfully (Mock)');
     }, 500);
   };
 
@@ -221,7 +221,12 @@ const GalleryManagement = ({ isAdmin }: GalleryManagementProps) => {
                     )}
                   </div>
                   {formData.media_url && formData.media_type === 'image' && (
-                    <img src={formData.media_url} alt="Preview" className="w-full h-32 object-cover rounded-lg mt-2" />
+                    <img
+                      src={formData.media_url}
+                      alt="Gallery Preview"
+                      title="Gallery Preview"
+                      className="w-full h-32 object-cover rounded-lg mt-2"
+                    />
                   )}
                   {formData.media_url && formData.media_type === 'video' && (
                     <video src={formData.media_url} className="w-full h-32 object-cover rounded-lg mt-2" controls />
@@ -283,7 +288,12 @@ const GalleryManagement = ({ isAdmin }: GalleryManagementProps) => {
                 {item.media_type === 'video' ? (
                   <video src={item.media_url} className="w-full h-32 object-cover" />
                 ) : (
-                  <img src={item.media_url} alt={item.title} className="w-full h-32 object-cover" />
+                  <img
+                    src={item.media_url}
+                    alt={item.title}
+                    title={item.title}
+                    className="w-full h-32 object-cover"
+                  />
                 )}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                   {isAdmin && (
