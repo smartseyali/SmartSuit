@@ -8,6 +8,7 @@ import {
   ChevronDown, LayoutGrid, ListFilter, SlidersHorizontal, Award
 } from 'lucide-react';
 import { usePrograms, useCategories } from '@/hooks/usePrograms';
+import SEO from '@/components/common/SEO';
 import {
   Select,
   SelectContent,
@@ -93,6 +94,10 @@ const Programs = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title="Allied Health Programs in Coimbatore | Sparkle AHS"
+        description="Explore premium allied health science programs in Coimbatore offered by Sparkle Institute. BSc, Diploma, and Certifications available for 2026."
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -386,8 +391,7 @@ const Programs = () => {
                         <span>{program.mode}</span>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <span className="text-primary font-bold text-lg">{program.fees}</span>
+                    <div className="flex items-center justify-end pt-4 border-t border-border">
                       <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                         View Details
                         <ArrowRight className="w-4 h-4" />

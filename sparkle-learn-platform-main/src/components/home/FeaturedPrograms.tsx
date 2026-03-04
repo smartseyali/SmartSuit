@@ -43,6 +43,7 @@ const FeaturedPrograms = () => {
                   alt={program.name}
                   title={program.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
                 <div className="absolute bottom-4 left-4">
@@ -74,8 +75,7 @@ const FeaturedPrograms = () => {
                     <span>{program.mode}</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-bold">{program.fees}</span>
+                <div className="flex items-center justify-end">
                   <span className="text-sm text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                     View Details
                     <ArrowRight className="w-4 h-4" />

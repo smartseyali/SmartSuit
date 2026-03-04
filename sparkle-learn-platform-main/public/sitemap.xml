@@ -30,4 +30,24 @@
     <lastmod>2026-03-02</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://sparkleahs.com/about</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sparkleahs.com/contact</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://sparkleahs.com/terms</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sparkleahs.com/faqs</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.3</priority>
+  </url>
 </urlset>

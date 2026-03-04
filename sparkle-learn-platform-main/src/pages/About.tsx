@@ -2,12 +2,15 @@ import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Target, Eye, ShieldCheck, Award, Users, BookOpen } from 'lucide-react';
-
-import { stats } from '@/data/static';
+import SEO from '@/components/common/SEO';
 
 const About = () => {
     return (
         <main className="min-h-screen bg-background">
+            <SEO
+                title="About Sparkle Allied Health Science | Mission, Vision & Faculty"
+                description="Learn about Sparkle Allied Health Science history, mission, expert faculty, and student success stories. A trusted institute dedicated to quality healthcare education."
+            />
             <Navbar />
 
             {/* Hero Section */}
@@ -62,8 +65,13 @@ const About = () => {
             <section className="py-16 bg-secondary/50">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                        {stats.map((stat, index) => (
-                            <div key={stat.label} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
+                        {[
+                            { label: 'Successful Placements', value: '50,000+' },
+                            { label: 'Industry Partners', value: '300+' },
+                            { label: 'Expert Mentors', value: '150+' },
+                            { label: 'Course Offerings', value: '25+' },
+                        ].map((stat, index) => (
+                            <div key={index} className="text-center animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
                                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
                                 <div className="text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
                             </div>
@@ -108,7 +116,7 @@ const About = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop"
                                     alt="Team Collaboration"
-                                    title="Team Collaboration"
+                                    title="Sparkle Campus - Team Collaboration"
                                     className="w-full h-auto"
                                 />
                             </div>

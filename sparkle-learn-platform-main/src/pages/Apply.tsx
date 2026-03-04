@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { fetchPrograms, createEnquiry } from '@/lib/api';
 import { trackEvent } from '@/lib/meta-pixel';
+import SEO from '@/components/common/SEO';
 
 interface Course {
   id: string;
@@ -45,9 +46,7 @@ const Apply = () => {
         setCourses(mappedCourses);
 
         if (programSlug) {
-          const matchingCourse = mappedCourses.find(c =>
-            c.slug === programSlug || c.id === programSlug
-          );
+          const matchingCourse = mappedCourses.find(c => c.slug === programSlug);
           if (matchingCourse) {
             setFormData(prev => ({ ...prev, course_id: matchingCourse.id }));
           }
@@ -111,6 +110,10 @@ const Apply = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title="Admissions Open 2026 – Sparkle Allied Health Science"
+        description="Apply now for Sparkle Allied Health Science 2026 admissions. Check fee details, eligibility criteria, course list, and easy online application."
+      />
       <Navbar />
 
       {/* Hero Section */}

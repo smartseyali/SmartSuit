@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SEO from '@/components/common/SEO';
 import {
     Accordion,
     AccordionContent,
@@ -85,6 +86,24 @@ const Faqs = () => {
 
     return (
         <main className="min-h-screen bg-background">
+            <SEO
+                title="Paramedical & Allied Health FAQ | Sparkle AHS"
+                description="Find answers to common questions about eligibility, clinical rotations, and placements for allied health science courses in India."
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": faqCategories.flatMap(cat =>
+                        cat.questions.map(q => ({
+                            "@type": "Question",
+                            "name": q.q,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": q.a
+                            }
+                        }))
+                    )
+                }}
+            />
             <Navbar />
 
             {/* Hero Header */}

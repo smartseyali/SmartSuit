@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import SEO from '@/components/common/SEO';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,6 +45,10 @@ const Contact = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title="Contact Sparkle Allied Health Science – Enquiry & Support"
+        description="Get in touch with Sparkle Allied Health Science. Call, email, or visit us for course queries, admission help, or campus tour scheduling."
+      />
       <Navbar />
 
       {/* Header */}
@@ -135,14 +140,14 @@ const Contact = () => {
             {/* Google Map */}
             <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border shadow-elevated relative animate-fade-up delay-200 group">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.777093247079!2d77.08632637505057!3d11.055307989110756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857a266935555%3A0xa194605151523456!2sSri%20Chaitanya%20Techno%20School!5e0!3m2!1sen!2sin!4v1705663673539!5m2!1sen!2sin"
-                width="100%"
+                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed" width="100%"
                 height="100%"
                 style={{ border: 0, filter: 'grayscale(0%) contrast(1.1)' }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="w-full h-full"
+                title="Campus Location Map"
               ></iframe>
 
               {/* Overlay Overlay for style (optional, removed for better usability) */}
@@ -159,7 +164,7 @@ const Contact = () => {
                       Near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062
                     </p>
                     <a
-                      href="https://maps.google.com/maps?q=Sri+Chaitanya+Techno+School+Coimbatore"
+                      href="https://www.google.com/maps?q=Sparkle+Institute+of+Allied+Health+Science"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-xs font-bold text-primary mt-3 hover:underline"
@@ -199,6 +204,33 @@ const Contact = () => {
                 <p className="text-primary-foreground/60">Online & Call assistance</p>
               </div>
             </div>
+          </div>
+
+          {/* Google Review CTA for GBP Optimization */}
+          <div className="mt-16 max-w-4xl mx-auto p-12 bg-accent/10 border-2 border-accent/20 rounded-[3rem] text-center space-y-6 relative overflow-hidden flex flex-col items-center">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16" />
+            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg mb-4">
+              <img
+                src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                alt="Google"
+                className="w-12 h-12"
+              />
+            </div>
+            <h3 className="text-2xl md:text-3xl font-display font-black text-foreground">
+              Are you a student? <span className="text-primary italic">Share your experience!</span>
+            </h3>
+            <p className="text-muted-foreground max-w-xl mx-auto text-lg italic leading-relaxed">
+              "Your feedback helps us transform more careers in Coimbatore. It takes less than 30 seconds!"
+            </p>
+            <Button size="xl" className="rounded-2xl shadow-glow-primary px-12" asChild>
+              <a
+                href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rate Us on Google
+              </a>
+            </Button>
           </div>
         </div>
       </section>

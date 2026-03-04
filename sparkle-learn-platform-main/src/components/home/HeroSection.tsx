@@ -27,7 +27,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-3">
               <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20 animate-fade-up">
                 <Star className="w-4 h-4 text-accent fill-accent" />
-                <span className="text-sm font-medium">Rated 4.9/5 by 1,000+ learners</span>
+                <span className="text-sm font-medium">Rated 4.9/5 by 50,000+ learners</span>
               </div>
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 animate-fade-up delay-75">
                 <Award className="w-4 h-4 text-accent" />
@@ -36,8 +36,8 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight animate-fade-up delay-100">
-              Transform Your Career with
-              <span className="block text-accent mt-2">Industry-Ready Skills</span>
+              Transform Your Career with <br />
+              <span className="text-accent italic">Allied Health Science Courses in Coimbatore</span>
             </h1>
 
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl animate-fade-up delay-200">
@@ -104,6 +104,7 @@ const HeroSection = () => {
                   alt="Students learning"
                   title="Students learning"
                   className="w-full h-48 object-cover"
+                  fetchPriority="high"
                 />
                 <div className="p-6">
                   <div className="text-sm text-muted-foreground mb-2">Featured Program</div>
@@ -133,9 +134,9 @@ const HeroSection = () => {
               <div className="absolute bottom-20 left-0 bg-card rounded-xl shadow-elevated p-4 animate-fade-in delay-700">
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Student 1" title="Student 1" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Student 2" title="Student 2" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Student 3" title="Student 3" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sparkle Student" title="Sparkle Student" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Sparkle Learner" title="Sparkle Learner" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="Sparkle Alumnus" title="Sparkle Alumnus" className="w-10 h-10 rounded-full border-2 border-card object-cover" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-foreground">Active Learners</div>

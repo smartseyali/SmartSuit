@@ -1,10 +1,11 @@
+import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import {
   Clock, MapPin, ArrowLeft, CheckCircle2, GraduationCap,
-  Briefcase, ChevronDown, Play, Users, Award
+  Briefcase, ChevronDown, Play, Users, Award, Share2, ArrowRight
 } from 'lucide-react';
 import {
   Accordion,
@@ -12,12 +13,41 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { useProgram } from '@/hooks/usePrograms';
+import { useProgram, usePrograms } from '@/hooks/usePrograms';
+import { toast } from 'sonner';
+import SEO from '@/components/common/SEO';
 
 const ProgramDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data: program, isLoading, error } = useProgram(id || '');
+  const { data: allPrograms } = usePrograms();
+
+  const relatedPrograms = useMemo(() => {
+    if (!program || !allPrograms) return [];
+    return allPrograms
+      .filter(p => p.category === program.category && p.id !== program.id)
+      .slice(0, 3);
+  }, [program, allPrograms]);
+
+  const handleShare = async () => {
+    const shareData = {
+      title: program?.name,
+      text: program?.description,
+      url: window.location.href,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(window.location.href);
+        toast.success("Link copied to clipboard!");
+      }
+    } catch (err) {
+      console.error("Error sharing", err);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -54,6 +84,25 @@ const ProgramDetail = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title={`${program.name} | Allied Health Programs`}
+        description={program.description}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": program.name,
+          "description": program.description,
+          "provider": {
+            "@type": "EducationalOrganization",
+            "name": "Sparkle Allied Health Science",
+            "sameAs": "https://sparkleahs.com"
+          },
+          "offers": {
+            "@type": "Offer",
+            "category": "Education"
+          }
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -62,14 +111,14 @@ const ProgramDetail = () => {
           <div className="absolute top-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
         </div>
         <div className="container mx-auto px-4 relative">
-          {/* Back Button */}
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground mb-8 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Programs</span>
-          </button>
+          {/* Breadcrumbs */}
+          <nav className="flex items-center gap-2 text-sm text-primary-foreground/60 mb-8 animate-fade-up">
+            <Link to="/" className="hover:text-primary-foreground transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/programs" className="hover:text-primary-foreground transition-colors">Programs</Link>
+            <span>/</span>
+            <span className="text-primary-foreground font-medium truncate max-w-[200px]">{program.name}</span>
+          </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-primary-foreground animate-fade-up">
@@ -108,11 +157,14 @@ const ProgramDetail = () => {
                 <Button variant="hero" size="xl" asChild>
                   <Link to={`/apply?program=${program.id}`}>Apply Now</Link>
                 </Button>
-                <Button variant="heroOutline" size="xl" asChild>
-                  <Link to={`/apply?program=${program.id}`} className="gap-2">
-                    <Play className="w-5 h-5" />
-                    Download Brochure
-                  </Link>
+                <Button
+                  variant="heroOutline"
+                  size="xl"
+                  onClick={handleShare}
+                  className="gap-2"
+                >
+                  <Share2 className="w-5 h-5" />
+                  Share Program
                 </Button>
               </div>
             </div>
@@ -128,10 +180,10 @@ const ProgramDetail = () => {
                 />
               </div>
               {/* Price Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-card rounded-xl shadow-elevated p-4">
+              {/* <div className="absolute -bottom-6 -left-6 bg-card rounded-xl shadow-elevated p-4">
                 <div className="text-sm text-muted-foreground">Program Fee</div>
                 <div className="text-2xl font-display font-bold text-primary">{program.fees}</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -258,10 +310,6 @@ const ProgramDetail = () => {
               <div className="sticky top-28 space-y-6">
                 {/* Price Card */}
                 <div className="bg-card rounded-2xl shadow-elevated border border-border/50 overflow-hidden animate-fade-up">
-                  <div className="p-6 bg-primary text-primary-foreground">
-                    <div className="text-sm opacity-80 mb-1">Program Fee</div>
-                    <div className="text-3xl font-display font-bold">{program.fees}</div>
-                  </div>
                   <div className="p-6 space-y-4">
                     <div className="flex items-center gap-3 text-sm">
                       <Clock className="w-5 h-5 text-muted-foreground" />
@@ -283,9 +331,6 @@ const ProgramDetail = () => {
                     <div className="pt-4 space-y-3">
                       <Button variant="default" size="lg" className="w-full" asChild>
                         <Link to={`/apply?program=${program.id}`}>Apply Now</Link>
-                      </Button>
-                      <Button variant="outline" size="lg" className="w-full" asChild>
-                        <Link to={`/apply?program=${program.id}`}>Download Brochure</Link>
                       </Button>
                     </div>
                   </div>
@@ -309,8 +354,129 @@ const ProgramDetail = () => {
         </div>
       </section>
 
+      {/* Related Programs Section */}
+      {
+        relatedPrograms.length > 0 && (
+          <section className="py-20 bg-secondary/30">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="text-3xl font-display font-bold text-foreground">
+                  Related <span className="text-primary">Programs</span>
+                </h2>
+                <Button variant="outline" asChild>
+                  <Link to={`/programs?category=${program.category}`}>View Category</Link>
+                </Button>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {relatedPrograms.map((p, index) => (
+                  <Link
+                    key={p.id}
+                    to={`/programs/${p.id}`}
+                    className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-500 border border-border/50 animate-fade-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={p.image}
+                        alt={p.name}
+                        title={p.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-display font-bold text-foreground text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                        {p.name}
+                      </h3>
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          <span>{p.duration}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <ArrowRight className="w-4 h-4" />
+                          <span>View Details</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )
+      }
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden group">
+            <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+            <div className="relative z-10 max-w-2xl mx-auto space-y-8">
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground leading-tight">
+                Not sure which course is <span className="text-accent underline decoration-accent/30 underline-offset-8">right for you?</span>
+              </h2>
+              <p className="text-xl text-primary-foreground/80">
+                Get free career counselling from our experts and take the first step towards a successful career.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button variant="hero" size="xl" asChild className="shadow-glow-accent">
+                  <Link to="/apply">Book Free Counselling</Link>
+                </Button>
+                <Button variant="heroOutline" size="xl" asChild>
+                  <Link to="/contact">Contact Support</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Resources Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
+            <div className="max-w-xl text-center md:text-left">
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Knowledge Cluster</span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground leading-tight">
+                Career & Admission <span className="text-primary italic">Resources</span>
+              </h2>
+            </div>
+            <Button variant="outline" asChild className="rounded-2xl border-2 hover:bg-primary hover:text-primary-foreground transition-all">
+              <Link to="/blog">Browse All Insights</Link>
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Link
+              to="/blog/what-is-allied-health-science"
+              className="group bg-card p-8 rounded-[2.5rem] border border-border/50 hover:shadow-elevated transition-all flex flex-col md:flex-row items-center gap-6"
+            >
+              <div className="w-20 h-20 shrink-0 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                <GraduationCap className="w-10 h-10" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">What is Allied Health Science?</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">Complete guide to the field, eligibility, and the expanding scope in India.</p>
+              </div>
+            </Link>
+            <Link
+              to="/blog/allied-health-science-career-guide"
+              className="group bg-card p-8 rounded-[2.5rem] border border-border/50 hover:shadow-elevated transition-all flex flex-col md:flex-row items-center gap-6"
+            >
+              <div className="w-20 h-20 shrink-0 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all">
+                <Briefcase className="w-10 h-10" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold group-hover:text-accent transition-colors">Career Guide – Courses & Growth</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">Salary expectations, top job roles, and growth opportunities for graduates.</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
-    </main>
+    </main >
   );
 };
 
