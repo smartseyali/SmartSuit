@@ -114,7 +114,7 @@ const Gallery = () => {
                     {item.mediaType === 'video' ? (
                       <video src={item.mediaUrl} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     ) : (
-                      <img src={item.mediaUrl} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <img src={item.mediaUrl} alt={item.title} title={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     )}
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />

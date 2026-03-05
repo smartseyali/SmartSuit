@@ -104,6 +104,7 @@ const CoimbatoreLanding = () => {
                                 <img
                                     src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&auto=format&fit=crop"
                                     alt="Coimbatore Medical Training"
+                                    title="Coimbatore Medical Training"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

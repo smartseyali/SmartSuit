@@ -213,6 +213,7 @@ const Contact = () => {
               <img
                 src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                 alt="Google"
+                title="Google"
                 className="w-12 h-12"
               />
             </div>

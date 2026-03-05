@@ -80,6 +80,7 @@ const BlogPost = () => {
                         <img
                             src={post.image}
                             alt={post.title}
+                            title={post.title}
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
