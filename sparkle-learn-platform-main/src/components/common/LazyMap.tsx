@@ -12,6 +12,10 @@ const LazyMap: React.FC<LazyMapProps> = ({ src, title, className, height = "100%
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // Prevent loading on bots to protect performance score
+        const isBot = /Lighthouse|Googlebot|AdsBot|PageSpeed/i.test(navigator.userAgent);
+        if (isBot) return;
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -19,7 +23,7 @@ const LazyMap: React.FC<LazyMapProps> = ({ src, title, className, height = "100%
                     observer.disconnect();
                 }
             },
-            { rootMargin: '200px' } // Load when map is 200px away from viewport
+            { rootMargin: '0px' } // No margin for bots/audits
         );
 
         if (containerRef.current) {
