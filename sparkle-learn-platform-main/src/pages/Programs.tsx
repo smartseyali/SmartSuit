@@ -96,7 +96,7 @@ const Programs = () => {
     <main className="min-h-screen bg-background">
       <SEO
         title="Allied Health Programs in Coimbatore | Sparkle AHS"
-        description="Explore premium allied health science programs in Coimbatore offered by Sparkle Institute. BSc, Diploma, and Certifications available for 2026."
+        description="Explore premium allied health science programs in Coimbatore offered by Sparkle Institute. BSc, Diploma, and Certifications available for 2026 admissions."
       />
       <Navbar />
 
@@ -180,7 +180,7 @@ const Programs = () => {
                     <div className="flex-grow overflow-y-auto py-6 space-y-8">
                       {/* Search in Drawer (Optional, but useful on mobile) */}
                       <div className="space-y-3">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Search</h4>
+                        <label htmlFor="search-input" className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80 block mb-3">Search</label>
                         <div className="relative group">
                           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                           <Input
@@ -195,7 +195,7 @@ const Programs = () => {
 
                       {/* Mode in Drawer */}
                       <div className="space-y-3">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Delivery Mode</h4>
+                        <div className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Delivery Mode</div>
                         <div className="grid grid-cols-2 gap-2">
                           {modes.map(mode => (
                             <button
@@ -214,7 +214,7 @@ const Programs = () => {
 
                       {/* Categories in Drawer */}
                       <div className="space-y-3">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Categories</h4>
+                        <div className="text-sm font-bold uppercase tracking-widest text-muted-foreground/80">Categories</div>
                         <div className="flex flex-wrap gap-2">
                           <button
                             onClick={() => handleCategoryChange('All')}

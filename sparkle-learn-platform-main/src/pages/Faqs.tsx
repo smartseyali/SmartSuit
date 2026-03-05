@@ -88,7 +88,7 @@ const Faqs = () => {
         <main className="min-h-screen bg-background">
             <SEO
                 title="Paramedical & Allied Health FAQ | Sparkle AHS"
-                description="Find answers to common questions about eligibility, clinical rotations, and placements for allied health science courses in India."
+                description="Find answers to common questions about eligibility, clinical rotations, syllabus, and placements for top allied health science courses in India here today."
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "FAQPage",

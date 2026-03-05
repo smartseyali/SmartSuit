@@ -8,8 +8,8 @@ const About = () => {
     return (
         <main className="min-h-screen bg-background">
             <SEO
-                title="About Sparkle Allied Health Science | Mission, Vision & Faculty"
-                description="Learn about Sparkle Allied Health Science history, mission, expert faculty, and student success stories. A trusted institute dedicated to quality healthcare education."
+                title="About Sparkle Allied Health Science | Mission & Faculty"
+                description="Learn about Sparkle Allied Health Science history, mission, expert faculty, and student stories. A trusted institute dedicated to quality healthcare education."
             />
             <Navbar />
 

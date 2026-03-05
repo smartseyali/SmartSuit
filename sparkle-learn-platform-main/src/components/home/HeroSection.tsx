@@ -108,7 +108,7 @@ const HeroSection = () => {
                 />
                 <div className="p-6">
                   <div className="text-sm text-muted-foreground mb-2">Featured Program</div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-2">Medical Lab Technology</h3>
+                  <div className="font-display font-bold text-foreground text-lg mb-2">Medical Lab Technology</div>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span>12 Months</span>
                     <span>•</span>

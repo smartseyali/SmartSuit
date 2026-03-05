@@ -112,7 +112,7 @@ const Apply = () => {
     <main className="min-h-screen bg-background">
       <SEO
         title="Admissions Open 2026 – Sparkle Allied Health Science"
-        description="Apply now for Sparkle Allied Health Science 2026 admissions. Check fee details, eligibility criteria, course list, and easy online application."
+        description="Apply now for Sparkle Allied Health Science 2026 admissions today. Check out fee details, eligibility criteria, full course list, and easy online application."
       />
       <Navbar />
 

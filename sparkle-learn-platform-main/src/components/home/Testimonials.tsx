@@ -54,9 +54,9 @@ const Testimonials = () => {
                   className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
                 />
                 <div>
-                  <h4 className="font-display font-semibold text-foreground">
+                  <h3 className="font-display font-semibold text-foreground">
                     {testimonial.name}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-muted-foreground">
                     {testimonial.role}
                   </p>

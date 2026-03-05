@@ -10,8 +10,8 @@ const CoimbatoreLanding = () => {
     return (
         <main className="min-h-screen bg-background">
             <SEO
-                title="Best Allied Health Science Courses in Coimbatore | Sparkle AHS"
-                description="Looking for Allied Health Science courses in Coimbatore? Sparkle AHS offers diploma and degree programs with hands-on clinical training at top hospitals in Coimbatore."
+                title="Best Allied Health Courses in Coimbatore | Sparkle AHS"
+                description="Looking for Allied Health Science courses in Coimbatore? Sparkle AHS offers diploma and degree programs with expert clinical training at top hospitals."
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "FAQPage",
@@ -93,7 +93,7 @@ const CoimbatoreLanding = () => {
                             <div className="p-6 bg-secondary/50 rounded-3xl border border-border inline-flex items-center gap-4">
                                 <MapPin className="text-primary w-8 h-8" />
                                 <div>
-                                    <h4 className="font-bold">Visit our Coimbatore Campus</h4>
+                                    <div className="font-bold text-lg text-foreground">Visit our Coimbatore Campus</div>
                                     <p className="text-sm text-muted-foreground">Neelambur, Avinashi Road, Coimbatore</p>
                                 </div>
                             </div>

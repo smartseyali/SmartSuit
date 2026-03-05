@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sparkle Allied Health Science | Leading Allied Health Institute Coimbatore</title>
+  <title>Sparkle Allied Health Institute Coimbatore</title>
   <meta name="google-site-verification" content="%VITE_GOOGLE_SITE_VERIFICATION%" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,37 +20,54 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
   </noscript>
 
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-      if (i.includes("YOUR_")) return;
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "%VITE_CLARITY_ID%");
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      if (i.includes("YOUR_")) return;
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', '%VITE_GTM_ID%');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_MEASUREMENT_ID%"></script>
+  <!-- Analytics Initialization (Stub) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    if (!"%VITE_GA_MEASUREMENT_ID%".includes("YOUR_")) {
-      gtag('js', new Date());
-      gtag('config', '%VITE_GA_MEASUREMENT_ID%', { 'page_path': window.location.pathname });
+    if (!window.fbq) {
+      var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
     }
+  </script>
+
+  <!-- Lazy Load Analytics to fix Lighthouse Performance -->
+  <script>
+    function loadAnalytics() {
+      if (window.analyticsLoaded) return;
+      window.analyticsLoaded = true;
+      var d = document, s = 'script';
+
+      var clarityId = "%VITE_CLARITY_ID%";
+      if (!clarityId.includes("YOUR_")) {
+        var cScript = d.createElement(s); cScript.async = 1; cScript.src = "https://www.clarity.ms/tag/" + clarityId;
+        d.head.appendChild(cScript);
+      }
+
+      var gaId = "%VITE_GA_MEASUREMENT_ID%";
+      if (!gaId.includes("YOUR_")) {
+        var gaScript = d.createElement(s); gaScript.async = 1; gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
+        d.head.appendChild(gaScript);
+        gtag('js', new Date());
+        gtag('config', gaId, { 'page_path': window.location.pathname });
+      }
+
+      var gtmId = "%VITE_GTM_ID%";
+      if (!gtmId.includes("YOUR_")) {
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var gtmScript = d.createElement(s); gtmScript.async = 1; gtmScript.src = "https://www.googletagmanager.com/gtm.js?id=" + gtmId;
+        d.head.appendChild(gtmScript);
+      }
+
+      var fbScript = d.createElement(s); fbScript.async = 1; fbScript.src = "https://connect.facebook.net/en_US/fbevents.js";
+      d.head.appendChild(fbScript);
+      fbq('init', '3744854592318549');
+      fbq('track', 'PageView');
+    }
+
+    setTimeout(loadAnalytics, 3000);
+    ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function (e) {
+      window.addEventListener(e, loadAnalytics, { once: true, passive: true });
+    });
   </script>
   <meta name="description"
     content="Sparkle Allied Health Science in Coimbatore offers industry-oriented healthcare programs, expert faculty, and clinical training. Apply now for 2026 sessions!" />
@@ -140,7 +157,7 @@
     </script>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Sparkle Allied Health Science | Leading Allied Health Institute Coimbatore" />
+  <meta property="og:title" content="Sparkle Allied Health Institute Coimbatore" />
   <meta property="og:description"
     content="Sparkle Allied Health Science in Coimbatore offers industry-oriented healthcare programs and expert clinical training. Join 50,000+ learners!" />
   <meta property="og:type" content="website" />
@@ -156,23 +173,10 @@
 
   <link rel="icon" type="image/jpeg" href="/logo.jpg" />
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3744854592318549');
-    fbq('track', 'PageView');
-  </script>
+  <!-- Noscript Meta Pixel Code -->
   <noscript><img height="1" width="1" style="display:none" alt="Meta Pixel" title="Meta Pixel"
-  src="https://www.facebook.com/tr?id=3744854592318549&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+      src="https://www.facebook.com/tr?id=3744854592318549&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel -->
 </head>
 
 <body>

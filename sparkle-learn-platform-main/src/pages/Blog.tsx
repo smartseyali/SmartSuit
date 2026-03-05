@@ -11,7 +11,7 @@ const Blog = () => {
         <main className="min-h-screen bg-background">
             <SEO
                 title="Sparkle Insights | Allied Health Science Careers & Guide"
-                description="Stay updated with Sparkle Insights. Professional guides on Allied Health Science careers, salaries, job roles, and future opportunities in India."
+                description="Stay up-to-date with Sparkle Insights. Professional guides on Allied Health Science careers, salaries, job roles, and future opportunities in India today."
             />
             <Navbar />
 

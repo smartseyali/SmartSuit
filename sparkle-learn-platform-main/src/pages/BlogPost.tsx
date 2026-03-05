@@ -92,10 +92,10 @@ const BlogPost = () => {
                             <div className="sticky top-32 flex flex-col items-center gap-6 animate-fade-up delay-400">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground vertical-lr transform rotate-180">Share This Story</span>
                                 <div className="h-12 w-[1px] bg-border/50" />
-                                <button className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Facebook className="w-5 h-5" /></button>
-                                <button className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Twitter className="w-5 h-5" /></button>
-                                <button className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Linkedin className="w-5 h-5" /></button>
-                                <button className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Share2 className="w-5 h-5" /></button>
+                                <button aria-label="Share on Facebook" title="Share on Facebook" className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Facebook className="w-5 h-5" /></button>
+                                <button aria-label="Share on Twitter" title="Share on Twitter" className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Twitter className="w-5 h-5" /></button>
+                                <button aria-label="Share on LinkedIn" title="Share on LinkedIn" className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Linkedin className="w-5 h-5" /></button>
+                                <button aria-label="Share link" title="Share link" className="hover:text-primary text-muted-foreground transition-all hover:scale-125"><Share2 className="w-5 h-5" /></button>
                             </div>
                         </div>
 
@@ -125,7 +125,7 @@ const BlogPost = () => {
                                         <User className="w-10 h-10" />
                                     </div>
                                     <div className="space-y-2">
-                                        <h4 className="text-xl font-display font-black text-foreground">Written by {post.author}</h4>
+                                        <h2 className="text-xl font-display font-black text-foreground">Written by {post.author}</h2>
                                         <p className="text-muted-foreground">Lead educator at Sparkle with over 15 years of clinical experience. Passionate about shaping the next generation of healthcare professionals.</p>
                                     </div>
                                 </div>
@@ -152,14 +152,14 @@ const BlogPost = () => {
                                     <ArrowLeft className="w-5 h-5 text-primary group-hover:-translate-x-2 transition-transform" />
                                     <div>
                                         <p className="text-xs font-black text-muted-foreground mb-1 uppercase tracking-widest">Previous Story</p>
-                                        <h5 className="font-bold text-foreground line-clamp-1">Industrial Growth in Coimbatore</h5>
+                                        <div className="font-bold text-foreground line-clamp-1 text-lg">Industrial Growth in Coimbatore</div>
                                     </div>
                                 </button>
                                 <button className="text-right group flex flex-row-reverse items-start gap-4 p-8 bg-card rounded-3xl border border-border hover:border-primary transition-all flex-grow basis-0">
                                     <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-2 transition-transform" />
                                     <div>
                                         <p className="text-xs font-black text-muted-foreground mb-1 uppercase tracking-widest">Next Story</p>
-                                        <h5 className="font-bold text-foreground line-clamp-1">Lab Automation 2024</h5>
+                                        <div className="font-bold text-foreground line-clamp-1 text-lg">Lab Automation 2024</div>
                                     </div>
                                 </button>
                             </div>

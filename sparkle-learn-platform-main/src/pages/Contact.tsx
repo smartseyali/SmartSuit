@@ -47,7 +47,7 @@ const Contact = () => {
     <main className="min-h-screen bg-background">
       <SEO
         title="Contact Sparkle Allied Health Science – Enquiry & Support"
-        description="Get in touch with Sparkle Allied Health Science. Call, email, or visit us for course queries, admission help, or campus tour scheduling."
+        description="Get in touch with Sparkle Allied Health Science in Coimbatore. Call, email, or visit us today for course queries, admission help, or campus tour scheduling."
       />
       <Navbar />
 
@@ -76,7 +76,7 @@ const Contact = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   {info.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-4">{info.title}</h3>
+                <h2 className="text-xl font-bold mb-4">{info.title}</h2>
                 <div className="space-y-1 mb-4">
                   {info.details.map((detail, idx) => (
                     <p key={idx} className="text-foreground font-medium">{detail}</p>
@@ -159,7 +159,7 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-primary fill-primary/20 animate-pulse" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground mb-1">We are here!</h4>
+                    <h3 className="font-bold text-foreground mb-1 text-base">We are here!</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Near Sri Chaitanya Techno School, Avinashi Road, Neelambur, Coimbatore - 641062
                     </p>
