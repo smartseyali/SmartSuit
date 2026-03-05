@@ -62,16 +62,21 @@
       d.head.appendChild(fbScript);
 
       var pixelId = "%VITE_META_PIXEL_ID%";
-      if (!pixelId.includes("YOUR_")) {
+      if (pixelId && !pixelId.includes("YOUR_")) {
         fbq('init', pixelId);
         fbq('track', 'PageView');
       }
+
+      console.log("Analytics loaded on interaction");
     }
 
-    setTimeout(loadAnalytics, 3000);
-    ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function (e) {
-      window.addEventListener(e, loadAnalytics, { once: true, passive: true });
-    });
+    // Load only on first user scroll, move, or touch
+    const triggerEvents = ['scroll', 'mousemove', 'touchstart'];
+    const triggerAnalytics = () => {
+      loadAnalytics();
+      triggerEvents.forEach(e => window.removeEventListener(e, triggerAnalytics));
+    };
+    triggerEvents.forEach(e => window.addEventListener(e, triggerAnalytics, { passive: true }));
   </script>
   <meta name="description"
     content="Sparkle Allied Health Science in Coimbatore offers industry-oriented healthcare programs, expert faculty, and clinical training. Apply now for 2026 sessions!" />

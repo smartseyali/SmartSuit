@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import LazyMap from '../common/LazyMap';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -74,16 +75,11 @@ const Footer = () => {
               </div>
             </div>
             <div className="mt-4 w-full h-40 rounded-xl overflow-hidden border border-white/10 shadow-sm">
-              <iframe
-                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed" width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
+              <LazyMap
+                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                 title="Campus Location"
-              ></iframe>
+                height="160px"
+              />
             </div>
           </div>
 

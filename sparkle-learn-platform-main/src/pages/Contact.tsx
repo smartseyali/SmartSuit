@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import SEO from '@/components/common/SEO';
+import LazyMap from '@/components/common/LazyMap';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -140,16 +141,12 @@ const Contact = () => {
 
             {/* Google Map */}
             <div className="h-full min-h-[500px] rounded-[2.5rem] overflow-hidden border border-border shadow-elevated relative animate-fade-up delay-200 group">
-              <iframe
-                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed" width="100%"
-                height="100%"
-                style={{ border: 0, filter: 'grayscale(0%) contrast(1.1)' }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
+              <LazyMap
+                src="https://maps.google.com/maps?q=11.068538,77.081520&t=k&z=15&ie=UTF8&iwloc=&output=embed"
                 title="Campus Location Map"
-              ></iframe>
+                className="w-full h-full"
+                height="500px"
+              />
 
               {/* Overlay Overlay for style (optional, removed for better usability) */}
 
