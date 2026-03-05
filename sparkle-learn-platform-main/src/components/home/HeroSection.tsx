@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-hero-gradient overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 hidden lg:block">
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/30 rounded-full blur-3xl" />
@@ -25,26 +25,25 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="text-primary-foreground space-y-8">
             <div className="flex flex-wrap gap-3">
-              <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20 animate-fade-up">
+              <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 border border-primary-foreground/20">
                 <Star className="w-4 h-4 text-accent fill-accent" />
-                <span className="text-sm font-medium">Rated 4.9/5 by 50,000+ learners</span>
+                <span className="text-sm font-medium">Rated 4.9/5 by 10,000+ learners</span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 animate-fade-up delay-75">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
                 <Award className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium">Certified by Bharathiyar University</span>
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight animate-fade-up delay-100">
-              Transform Your Career with <br />
-              <span className="text-accent italic">Allied Health Science Courses in Coimbatore</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
+              Transform Your Career with <span className="text-accent italic">Allied Health Science Courses in Coimbatore</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl animate-fade-up delay-200">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl">
               Join India's leading platform for specialized certifications in Medical Science and Advanced Management. Learn from specialized doctors, senior researchers, and management experts with 10+ years of experience.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/programs">
                   Explore Programs

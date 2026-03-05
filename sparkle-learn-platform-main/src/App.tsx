@@ -15,8 +15,6 @@ const About = lazy(() => import("./pages/About"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Faqs = lazy(() => import("./pages/Faqs"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
 const CoimbatoreLanding = lazy(() => import("./pages/LocalLanding"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -51,8 +49,6 @@ const App = () => {
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/faqs" element={<Faqs />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:id" element={<BlogPost />} />
                 <Route path="/allied-health-science-courses-coimbatore" element={<CoimbatoreLanding />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

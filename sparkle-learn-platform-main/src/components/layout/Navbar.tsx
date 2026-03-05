@@ -24,7 +24,6 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Programs', path: '/programs' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Insights', path: '/blog' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -102,6 +101,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-foreground' : 'text-primary-foreground'
               }`}
           >

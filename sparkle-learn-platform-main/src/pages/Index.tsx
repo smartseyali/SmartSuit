@@ -10,7 +10,6 @@ const Categories = lazy(() => import('@/components/home/Categories'));
 const WhySparkle = lazy(() => import('@/components/home/WhySparkle'));
 const CTASection = lazy(() => import('@/components/home/CTASection'));
 const OfficeGallery = lazy(() => import('@/components/home/OfficeGallery'));
-const RecentBlog = lazy(() => import('@/components/home/RecentBlog'));
 const SEOContent = lazy(() => import('@/components/home/SEOContent'));
 
 const Index = () => {
@@ -31,7 +30,6 @@ const Index = () => {
         <SEOContent />
         <OfficeGallery />
         <WhySparkle />
-        <RecentBlog />
         <CTASection />
       </Suspense>
 

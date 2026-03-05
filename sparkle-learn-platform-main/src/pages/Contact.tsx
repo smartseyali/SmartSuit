@@ -95,26 +95,27 @@ const Contact = () => {
                 <p className="text-muted-foreground">Fill out the form below and we'll respond within 24 hours.</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" id="contact-form">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold pl-1">Full Name</label>
-                    <Input placeholder="John Doe" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
+                    <label htmlFor="contact-name" className="text-sm font-semibold pl-1">Full Name</label>
+                    <Input id="contact-name" placeholder="John Doe" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold pl-1">Email Address</label>
-                    <Input type="email" placeholder="john@example.com" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
+                    <label htmlFor="contact-email" className="text-sm font-semibold pl-1">Email Address</label>
+                    <Input id="contact-email" type="email" placeholder="john@example.com" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold pl-1">Subject</label>
-                  <Input placeholder="Course Inquiry" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
+                  <label htmlFor="contact-subject" className="text-sm font-semibold pl-1">Subject</label>
+                  <Input id="contact-subject" placeholder="Course Inquiry" required className="rounded-xl h-12 bg-secondary/50 border-transparent focus:bg-background" />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold pl-1">Your Message</label>
+                  <label htmlFor="contact-message" className="text-sm font-semibold pl-1">Your Message</label>
                   <Textarea
+                    id="contact-message"
                     placeholder="How can we help you?"
                     required
                     className="rounded-xl min-h-[150px] bg-secondary/50 border-transparent focus:bg-background resize-none"
@@ -187,21 +188,21 @@ const Contact = () => {
               <MessageSquare className="w-10 h-10 text-accent" />
               <div>
                 <p className="font-bold text-xl">Quick Response</p>
-                <p className="text-primary-foreground/60">Within 24 working hours</p>
+                <p className="text-primary-foreground/85">Within 24 working hours</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Clock className="w-10 h-10 text-accent" />
               <div>
                 <p className="font-bold text-xl">Operational Hours</p>
-                <p className="text-primary-foreground/60">Mon-Sat: 9AM - 6PM</p>
+                <p className="text-primary-foreground/85">Mon-Sat: 9AM - 6PM</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Globe className="w-10 h-10 text-accent" />
               <div>
                 <p className="font-bold text-xl">PAN India Support</p>
-                <p className="text-primary-foreground/60">Online & Call assistance</p>
+                <p className="text-primary-foreground/85">Online & Call assistance</p>
               </div>
             </div>
           </div>

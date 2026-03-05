@@ -14,7 +14,6 @@ const Footer = () => {
     ],
     company: [
       { name: 'About Us', path: '/about' },
-      { name: 'Insights', path: '/blog' },
       { name: 'Careers', path: '/careers' },
       { name: 'Contact', path: '/apply' },
     ],
@@ -52,7 +51,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-primary-foreground/70 mb-6 max-w-sm">
-              Empowering careers through world-class education. Join 50,000+ learners who transformed their lives with Sparkle.
+              Empowering careers through world-class education. Join 10,000+ learners who transformed their lives with Sparkle.
             </p>
             <div className="space-y-3">
               <a href="mailto:hello@sparkle.edu" className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent transition-colors">
