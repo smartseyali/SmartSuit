@@ -60,8 +60,12 @@
 
       var fbScript = d.createElement(s); fbScript.async = 1; fbScript.src = "https://connect.facebook.net/en_US/fbevents.js";
       d.head.appendChild(fbScript);
-      fbq('init', '3744854592318549');
-      fbq('track', 'PageView');
+
+      var pixelId = "%VITE_META_PIXEL_ID%";
+      if (!pixelId.includes("YOUR_")) {
+        fbq('init', pixelId);
+        fbq('track', 'PageView');
+      }
     }
 
     setTimeout(loadAnalytics, 3000);
@@ -172,14 +176,14 @@
   <meta name="twitter:image" content="https://sparkleahs.com/logo.jpg" />
 
   <link rel="icon" type="image/jpeg" href="/logo.jpg" />
-
-  <!-- Noscript Meta Pixel Code -->
-  <noscript><img height="1" width="1" style="display:none" alt="Meta Pixel" title="Meta Pixel"
-      src="https://www.facebook.com/tr?id=3744854592318549&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel -->
 </head>
 
 <body>
+  <!-- Noscript Meta Pixel Code -->
+  <noscript><img height="1" width="1" style="display:none" alt="Meta Pixel" title="Meta Pixel"
+      src="https://www.facebook.com/tr?id=%VITE_META_PIXEL_ID%&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel -->
+
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=%VITE_GTM_ID%" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
