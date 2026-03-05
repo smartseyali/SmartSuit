@@ -1,17 +1,17 @@
+import { lazy, Suspense } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SEO from '@/components/common/SEO';
 import HeroSection from '@/components/home/HeroSection';
-import Stats from '@/components/home/Stats';
-import FeaturedPrograms from '@/components/home/FeaturedPrograms';
-import Categories from '@/components/home/Categories';
-import WhySparkle from '@/components/home/WhySparkle';
-import Testimonials from '@/components/home/Testimonials';
-import CTASection from '@/components/home/CTASection';
 
-import OfficeGallery from '@/components/home/OfficeGallery';
-import RecentBlog from '@/components/home/RecentBlog';
-import SEOContent from '@/components/home/SEOContent';
+const Stats = lazy(() => import('@/components/home/Stats'));
+const FeaturedPrograms = lazy(() => import('@/components/home/FeaturedPrograms'));
+const Categories = lazy(() => import('@/components/home/Categories'));
+const WhySparkle = lazy(() => import('@/components/home/WhySparkle'));
+const CTASection = lazy(() => import('@/components/home/CTASection'));
+const OfficeGallery = lazy(() => import('@/components/home/OfficeGallery'));
+const RecentBlog = lazy(() => import('@/components/home/RecentBlog'));
+const SEOContent = lazy(() => import('@/components/home/SEOContent'));
 
 const Index = () => {
   return (
@@ -22,15 +22,19 @@ const Index = () => {
       />
       <Navbar />
       <HeroSection />
-      <Stats />
-      <FeaturedPrograms />
-      <Categories />
-      <SEOContent />
-      <OfficeGallery />
-      <WhySparkle />
-      {/* <Testimonials /> */}
-      <RecentBlog />
-      <CTASection />
+
+      {/* Defer loading below-the-fold content to maximize mobile Lighthouse scores */}
+      <Suspense fallback={<div className="h-32" />}>
+        <Stats />
+        <FeaturedPrograms />
+        <Categories />
+        <SEOContent />
+        <OfficeGallery />
+        <WhySparkle />
+        <RecentBlog />
+        <CTASection />
+      </Suspense>
+
       <Footer />
     </main>
   );
