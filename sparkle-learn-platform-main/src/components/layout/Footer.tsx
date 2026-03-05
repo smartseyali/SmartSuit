@@ -28,10 +28,10 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Facebook, href: 'https://facebook.com/sparkleahs', label: 'Facebook' },
-    { icon: Twitter, href: 'https://twitter.com/sparkleahs', label: 'Twitter' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/sparkleahs', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com/sparkleahs', label: 'Instagram' },
-    { icon: Youtube, href: 'https://youtube.com/sparkleahs', label: 'YouTube' },
+    // { icon: Twitter, href: 'https://twitter.com/sparkleahs', label: 'Twitter' },
+    // { icon: Linkedin, href: 'https://linkedin.com/company/sparkleahs', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/sparkleinstitute_ahs?igsh=Nmx3emYzZDhianFs', label: 'Instagram' },
+    // { icon: Youtube, href: 'https://youtube.com/sparkleahs', label: 'YouTube' },
   ];
 
   return (
